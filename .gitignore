@@ -1,0 +1,14 @@
+/*
+!wp-content
+!.gitignore
+wp-content/*
+
+!wp-content/plugins
+wp-content/plugins/*
+!wp-content/plugins/zylo-elementor
+!wp-content/plugins/zylo-toolkit
+
+!wp-content/themes
+wp-content/themes/*  
+!/wp-content/themes/zylo/
+!/wp-content/themes/zylo-child/

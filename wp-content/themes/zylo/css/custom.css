@@ -1,0 +1,409 @@
+
+/* About section button border color css */
+
+.theme-btn {
+    border-color: #B69974;
+}
+
+/* This css for about service section shape bg image*/
+
+/* SR-CSS End */
+.about-style-1 .section-content .planning-list ul {
+    position: relative;
+    top: 16px;
+    margin-bottom: 40px;
+}
+.brand-slider-wrappper .swiper-wrapper {
+    align-items: center;
+}
+.iteminfo__content {
+    margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+.section-title br {
+    display: none;
+}
+.banner-area .banner-inner img {
+    width: 100%;
+    height: 150px !important;
+    object-fit: cover;
+}
+.breadcrumb-wrapper h3.page-title, .breadcrumb-wrapper .page-heading h2 {
+    font-size: 36px;
+    line-height: 46px;
+}
+.service-details.section-padding, .service-details.section-padding {
+    padding-bottom: 80px !important;
+}
+.team-details {
+    padding: 80px 15px 20px;
+}
+.page-area.pt-135.pb-105 {
+    padding-top: 65px;
+    padding-bottom: 30px;
+}
+section.blog-area.pt-140.pb-105 {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+.single-post-item .post-content-wrapper {
+    padding-top: 40px;
+    padding: 40px 20px;
+}
+}
+/* 0px – 374px, iPhone SE,  */
+@media (max-width: 374.98px) {
+.service-style-1 .service__content .bg-img p {
+    top: 115px;
+    font-size: 16px;
+    line-height: 24px;
+}
+.section-title br {
+    display: none;
+}
+section.blog-area.pt-140.pb-140 {
+    padding: 80px 0 40px;
+}
+.single-post-item .post-content-wrapper {
+    padding: 40px 15px;
+}
+.basic-pagination.basic-pagination-2 {
+    margin-bottom: 60px;
+}
+aside.sidebar .widget {
+    padding: 40px 15px;
+}
+
+}
+
+/* 375px – 390px (iPhone 12/13/14 Pro, Pixel 5  */
+@media (min-width: 375px) and (max-width: 390px) {
+.service-style-1 .service__content .bg-img p {
+    top: 125px;
+    font-size: 16px;
+    line-height: 24px;
+}
+.heading-btn .btn-box {
+    justify-content: start;
+    padding-left: 15px;
+}
+.portfolio-style-1 .thumb .icon-1 {
+    top: 0px;
+    left: 0px;
+}
+.portfolio-style-1 .thumb .icon-2 {
+    top: 0;
+    right: 0;
+}
+.testimonial-style-1 {
+    padding-bottom: 40px !important;
+}
+.service-style-1 .container-fluid.pt-112.pb-140 {
+    padding-top: 40px;
+}
+.service-style-2 .singleitem .content .title {
+    line-height: 30px;
+}
+.blog-post-nav {
+    display: block;
+}
+.blog-post-nav .post-navigation {
+    width: 100%;
+}
+.blog-post-nav .post-navigation .post-img img {
+    object-fit: cover;
+}
+}
+
+/* 391px – 430px */
+@media (min-width: 391px) and (max-width: 430px) {
+.heading-btn .btn-box {
+    justify-content: start;
+    padding-left: 15px;
+}
+.portfolio-style-1 .thumb .icon-1 {
+    top: 0px;
+    left: 0px;
+}
+.portfolio-style-1 .thumb .icon-2 {
+    top: 0;
+    right: 0;
+}
+.elementor-element.elementor-element-d682a41.e-con-full.space {
+    padding-top: 80px;
+}
+.service-style-1 .container-fluid.pt-112.pb-140 {
+    padding-top: 40px;
+}
+.service-style-2 .singleitem .content .title {
+    line-height: 32px;
+}
+.elementor-element.footer-banner.elementor-widget.elementor-widget-heading h2.elementor-heading-title.elementor-size-default br {
+    display: none;
+}
+.banner-inner h2.title {
+    width: 100%;
+}
+.blog-post-nav {
+    display: block;
+}
+.blog-post-nav .post-navigation {
+    width: 100%;
+}
+.blog-post-nav .post-navigation .post-img img {
+    object-fit: cover;
+}
+}
+
+/* 431px – 567px */
+@media (min-width: 431px) and (max-width: 567px) {
+.heading-btn .btn-box {
+    justify-content: start;
+    padding-left: 15px;
+} 
+.service-style-2 .singleitem .content .title {
+    line-height: 30px;
+}
+.blog-post-nav {
+    display: block;
+}
+.blog-post-nav .post-navigation {
+    width: 100%;
+}
+.blog-post-nav .post-navigation .post-img img {
+    object-fit: cover;
+}
+}
+
+/* 568px – 767.98px */
+@media (min-width: 568px) and (max-width: 767.98px) {
+    .heading-btn .btn-box {
+        justify-content: inherit;
+        padding-left: 15px;
+    }
+    .service-style-1 .container-fluid.pt-112.pb-140 {
+        padding-top: 40px !important;
+        padding-bottom: 90px !important;
+    }
+    .section-title br {
+        display: none;
+    }
+    .service-style-2 .singleitem .content .title {
+    line-height: 30px;
+}
+.blog-post-nav {
+    display: block;
+}
+.blog-post-nav .post-navigation {
+    width: 100%;
+}
+.blog-post-nav .post-navigation .post-img img {
+    object-fit: cover;
+}
+}
+
+/* 768px – 991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* 992px – 1199.98px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .service-style-1 .service__content .bg-img .icon-box a {
+        width: 80px;
+        height: 80px;
+        line-height: 95px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .service-style-1 .service__content {
+        height: 233px;
+    }
+    .service-style-1 .service__content .bg-img .icon-box a img {
+        width: 66%;
+    }
+    .service-style-1 .service__content .bg-img .section-title-md {
+        top: 24px;
+        width: 64% !important;
+        left: 20px;
+    }
+    .service-style-1 .service__content .bg-img p {
+        bottom: 30px !important;
+        left: 20px;
+    }
+    .container-fluid.pt-112.pb-140 {
+        padding-bottom: 95px;
+    }
+}
+
+/* 1200px – 1399.98px */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .service-style-1 .service__content:hover .bg-img .icon-box img {
+        width: 63%;
+    }
+}
+
+/* 1400px and up */
+@media (min-width: 1400px) {
+
+}
+/* iPad Mini (all generations) – 768px × 1024px & 744px × 1133px (newer) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .service-style-1 .service__content .bg-img .section-title-md {
+    top: 45px;
+    width: 58%;
+    }
+    .service-style-1 .service__content .bg-img p {
+    bottom: 20px;
+    }
+    .service-style-1 .service__content .bg-img .icon-box a {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    }
+    .service-style-1 .service__content .bg-img .icon-box a img {
+    width: 70%;
+    }
+    .service-style-1 .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 100px;
+    }
+    .service-style-3 .service-wrap .single-item-content {
+    height: 500px;
+    }
+    .service-style-3 .service-wrap .single-item-content .box-content, .service-style-3 .service-wrap .single-item-content.active .box-content {
+    bottom: 60px;
+    }   
+    .service-style-3 .service-wrap .single-item-content .icon__2, .service-style-3 .service-wrap .single-item-content.active .icon__2 {
+    left: 160px;
+    } 
+    .service-style-3 .service-wrap .single-item-content:hover .icon__1 {
+    top: 90px;
+    left: 58px;
+    opacity: 1;
+    visibility: visible;
+    }
+    .service-style-3 .service-wrap .single-item-content:hover .box-content {
+    position: absolute;
+    bottom: 50px;
+    left: 15px;
+    }
+    .elementor-element.elementor-element-d682a41.e-con-full.space {
+    padding-top: 140px;
+    }
+    .elementor-394 .elementor-element.elementor-element-0ddaa09 .section-content h2.section-title br {
+        display: none;
+    }
+    .brand-slider-style-2.style-3, .brand-slider-style-2.style-4 {
+    padding-bottom: 0;
+}
+.portfolio-style-1 .thumb .icon-1 {
+    top: 0;
+    left: 0;
+}  
+.portfolio-style-1 .thumb .icon-2 {
+    top: 0;
+    right: 0;
+} 
+.work-style-2 .singleitem:hover .singleitem__icon {
+    top: 115px;
+}
+.team-style-1 .singleitem__thumb {
+    width: 75%;
+}
+.team-style-1 .singleitem__iconbox a {
+    width: 90px;
+    height: 90px;
+} 
+div#media_image-2 img {
+    width: 100%;
+}
+.service-details.section-padding, .service-details.section-padding {
+    padding: 100px 0;
+}  
+section.blog-area.pt-140.pb-105 {
+    padding-top: 100px;
+    padding-bottom: 60px;
+} 
+.gallery.galleryid-1383.gallery-columns-3.gallery-size-thumbnail {
+    display: flex;
+    gap: 5px;
+}
+}
+
+/* iPad Air (all generations including Air 5) – 820px × 1180px & 834px × 1112px */
+@media only screen 
+and (min-device-width: 820px) 
+and (max-device-width: 1180px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .team-style-1 .singleitem__thumb {
+    width: 75%;
+    } 
+    .team-style-1 .singleitem__iconbox a {
+    width: 90px;
+    height: 90px;
+    }  
+}
+
+/* iPad Pro 11″ – 834px × 1194px */
+@media only screen 
+and (min-device-width: 834px) 
+and (max-device-width: 1194px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* iPad Pro 12.9″ (all generations) – 1024px × 1366px */
+@media only screen 
+and (min-device-width: 1024px) 
+and (max-device-width: 1366px)
+and (-webkit-min-device-pixel-ratio: 2) { 
+.service-style-1 .service {
+    margin-bottom: 75px;
+}
+.elementor-2068 .elementor-element.elementor-element-df299cf .section-title {
+    line-height: 42px !important;
+}
+.service-style-1 .section-content {
+    margin-bottom: 30px;
+}
+.service-style-3 .service-wrap .single-item-content:hover .icon__2 {
+    left: 170px;
+}
+section.blog-area.pt-140.pb-105 {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+.gallery.galleryid-1383.gallery-columns-3.gallery-size-thumbnail {
+    display: inline;
+}
+aside.sidebar .widget {
+    padding: 15px;
+}
+}
+/* Global */
+.about-style-1 .shape__1 img {
+    width: 100%;
+}
+
+/* === Unit test css === */
+.post-content ul.wp-block-archives-list.wp-block-archives, .blog-details-wrapper .page-links {
+    margin-bottom: 20px;
+}
+.wp-block-columns.has-pale-pink-background-color.has-background.is-layout-flex.wp-container-core-columns-is-layout-9d6595d7.wp-block-columns-is-layout-flex {
+    padding: 10px;
+}
+.wp-block-file *+.wp-block-file__button {
+    margin-left: .75em;
+    padding: 0 10px;
+}
+.single-post-item .post-content p.has-large-font-size {
+    line-height: 42px;
+}
+.wp-block-media-text.has-media-on-the-right>.wp-block-media-text__content p {
+    line-height: 40px;
+}
