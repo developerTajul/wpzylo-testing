@@ -544,7 +544,7 @@ class ZyloAbout extends \Elementor\Widget_Base {
             $this->add_responsive_control(
                 'title_line_height',
                 [
-                    'label' => __( 'Title Line Height', 'textdomain' ),
+                    'label' => __( 'Title gsdfsdf Line Height', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%', 'vh' ],
                     'range' => [
