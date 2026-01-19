@@ -126,6 +126,12 @@ class ZyloProject {
             'object_types' => array('zylo-portfolio'),
             'fields'       => array(
                 array(
+                    'name' => esc_html__('Details Image', 'zylo-toolkit'),
+                    'desc' => esc_html__('Upload image (930px x 480px recommended)', 'zylo-toolkit'),
+                    'type' => 'file',
+                    'id'   => 'portfolio_details_img',
+                ),
+                array(
                     'name' => esc_html__('Large Image', 'zylo-toolkit'),
                     'desc' => esc_html__('Upload image (854x466px recommended)', 'zylo-toolkit'),
                     'type' => 'file',

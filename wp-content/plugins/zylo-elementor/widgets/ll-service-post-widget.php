@@ -305,77 +305,445 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        // Title Style Section
+
+        // Section Padding
+        $this->start_controls_section(
+            'section_padding',
+                [
+                    'label' => esc_html__('Section Paddin', 'zylo-elementor'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_responsive_control(
+                'section_padding_22',
+                [
+                    'label' => esc_html__('Padding', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .service_section_pd' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+        $this->end_controls_section();
+
+
+
+        //  Title Style Start
         $this->start_controls_section(
             'title_style',
-            [
-                'label' => esc_html__('Title Style', 'zylo-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
+                [
+                    'label' => esc_html__('Title Style', 'zylo-elementor'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
 
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Title Color', 'zylo-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
+            
+            $this->add_control(
+                'subtitle_icon_color_22',
+                [
+                    'label' => esc_html__('Sub Title Icon Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title',
-            ]
-        );
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_icon_typography',
+                    'selector' => '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a',
+                ]
+            );
 
-        $this->add_responsive_control(
-            'title_margin',
-            [
-                'label' => esc_html__('Margin', 'zylo-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
+            $this->add_control(
+                'subtitle_icon_bg_color',
+                [
+                    'label' => esc_html__('Icon Background Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span, {{WRAPPER}} .contact-btn a' => 'background: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_custom_width',
+                [
+                    'label' => __( 'Icon Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_custom_height',
+                [
+                    'label' => __( 'Icon Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'custom_line_height',
+                [
+                    'label' => __( 'Icon Line Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_margin_222',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'divider_01122',
+                [
+                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                ]
+            );
+
+            $this->add_control(
+                'subtitle_color_22',
+                [
+                    'label' => esc_html__('Sub Title Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_typography',
+                    'selector' => '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_width',
+                [
+                    'label' => __( 'Sub Title Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_padding_22',
+                [
+                    'label' => esc_html__('Padding', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'subtitle_margin_22',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            //  Subtitle section end
+
+            $this->add_control(
+                'divider_01111',
+                    [
+                        'type' => \Elementor\Controls_Manager::DIVIDER,
+                    ]
+                );
+
+             //  title section Start
+
+            $this->add_control(
+                'title_color_22',
+                [
+                    'label' => esc_html__('Title Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'heading_title_typography',
+                    'selector' => '{{WRAPPER}} .section-title, {{WRAPPER}} .contact-btn a',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'custom_width',
+                [
+                    'label' => __( 'Title Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'title_padding_22',
+                [
+                    'label' => esc_html__('Padding', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'title_margin_22',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+        $this->end_controls_section();
+
+
+
+        // Title Style Section
+        $this->start_controls_section(
+            'post_title_style',
+                [
+                    'label' => esc_html__('Post Title Style', 'zylo-elementor'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_control(
+                'title_color',
+                [
+                    'label' => esc_html__('Title Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'title_typography',
+                    'selector' => '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'title_margin',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
 
         $this->end_controls_section();
 
         // Description Style Section
         $this->start_controls_section(
             'description_style',
-            [
-                'label' => esc_html__('Description Style', 'zylo-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
+                [
+                    'label' => esc_html__('Description Style', 'zylo-elementor'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
 
-        $this->add_control(
-            'description_color',
-            [
-                'label' => esc_html__('Description Color', 'zylo-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
+            $this->add_control(
+                'description_color',
+                [
+                    'label' => esc_html__('Description Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'description_typography',
-                'selector' => '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p',
-            ]
-        );
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'description_typography',
+                    'selector' => '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p',
+                ]
+            );
 
         $this->end_controls_section();
+
+
+        //  Card Icon / Image Style Section
+
+        $this->start_controls_section(
+            'post_icon_style',
+                [
+                    'label' => esc_html__('Post Icon Style', 'zylo-elementor'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_responsive_control(
+                'icon_image_width',
+                [
+                    'label' => __( 'Icon/img Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box img' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'divider_011222',
+                [
+                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                ]
+            );
+
+            $this->add_responsive_control(
+                'icon_margin',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'icon_bg_width',
+                [
+                    'label' => __( 'Icon Background Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box a' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'icon_bg_height',
+                [
+                    'label' => __( 'Icon Background Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box a' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'icon_bg_line_height',
+                [
+                    'label' => __( 'Icon Line Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'em' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'em' => [ 'min' => 0, 'max' => 10 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box a' => 'line-height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+        $this->end_controls_section();
+
 
         // Button Style Section
         $this->start_controls_section(
@@ -486,7 +854,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                         <span class="line line-3"></span>
                         <span class="line line-4"></span>
                     </div>
-                    <div class="container-fluid pt-112 pb-140">
+                    <div class="container-fluid service_section_pd">
                         <div class="row">
                             <div class="col-xl-4 col-lg-12 col-md-6 mt-30">
                                 <div class="section-content">

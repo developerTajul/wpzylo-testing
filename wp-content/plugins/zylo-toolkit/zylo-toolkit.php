@@ -3,14 +3,17 @@
 Plugin Name: Zylo Toolkit
 Plugin URI: https://themeforest.net/user/softcrafty
 Description: Required plugin for Zylo Theme - Adds custom post types, widgets, and metaboxes
-Version: 1.0.1
+Version: 1.0.0
 Author: SoftCrafty
 Author URI: https://themeforest.net/user/softcrafty
 Text Domain: zylo-toolkit
 Domain Path: /languages
+Tested up to: 6.4
+Requires PHP: 7.4
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
+
 
 if (!defined('ABSPATH')) exit;
 
