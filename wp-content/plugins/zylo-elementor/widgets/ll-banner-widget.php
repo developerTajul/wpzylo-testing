@@ -403,7 +403,7 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
-                    '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .slider-content .slider-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .hero-style-1 .hero-content-left .title' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -412,7 +412,7 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .slider-content .slider-title',
+                'selector' => '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .hero-style-1 .hero-content-left .title',
             ]
         );
 
@@ -423,7 +423,7 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .hero-style-1 .hero-content-left .title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -440,7 +440,7 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
                     'vw' => [ 'min' => 10, 'max' => 100 ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .hero-content .title' => 'max-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hero-content .title, {{WRAPPER}} .hero-style-1 .hero-content-left .title' => 'max-width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -462,13 +462,81 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
             );
 
             $this->add_control(
+                'subtitle_info_num_color',
+                [
+                    'label' => esc_html__('Subtitle Info Number Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_info_num_typography',
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selector' => '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_info_num_margin',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_info_num_width',
+                [
+                    'label' => esc_html__( 'Subtitle Info Num Width', 'kindaid' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ '%', 'px', 'vw' ],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'range' => [
+                        '%' => [ 'min' => 10, 'max' => 100 ],
+                        'px' => [ 'min' => 50, 'max' => 1000 ],
+                        'vw' => [ 'min' => 10, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content h2, {{WRAPPER}} ' => 'max-width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+
+            $this->add_control(
+                'divider_01122',
+                [
+                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                ]
+            );
+
+            $this->add_control(
                 'subtitle_color',
                 [
                     'label' => esc_html__('Subtitle Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
                     'default' => '#ffffff',
                     'selectors' => [
-                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .slider-content .slider-title' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2 span' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -477,7 +545,7 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'subtitle_typography',
-                    'selector' => '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .slider-content .slider-title',
+                    'selector' => '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2 span',
                 ]
             );
 
@@ -488,7 +556,7 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => ['px', '%', 'em'],
                     'selectors' => [
-                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2 span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -499,13 +567,163 @@ class LuxelifeBanner extends \Elementor\Widget_Base {
                     'label' => esc_html__( 'Subtitle Width', 'kindaid' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ '%', 'px', 'vw' ],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
                     'range' => [
                         '%' => [ 'min' => 10, 'max' => 100 ],
                         'px' => [ 'min' => 50, 'max' => 1000 ],
                         'vw' => [ 'min' => 10, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .hero-content .title span' => 'max-width: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .hero-content .title span, {{WRAPPER}} .hero-style-1 .info-content h2 span' => 'max-width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+
+            //  Hero subtitle Top description section code start
+            $this->add_control(
+                'divider_011222',
+                [
+                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'subtitle_top_des_color',
+                [
+                    'label' => esc_html__('Subtitle Top Des Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'default' => '#ffffff',
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content p, {{WRAPPER}}' => 'color: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_top_des_typography',
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selector' => '{{WRAPPER}} .hero-style-1 .info-content p, {{WRAPPER}} ',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_top_des_margin',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content p, {{WRAPPER}} ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_top_des_width',
+                [
+                    'label' => esc_html__( 'Subtitle Top Des Width', 'kindaid' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ '%', 'px', 'vw' ],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'range' => [
+                        '%' => [ 'min' => 10, 'max' => 100 ],
+                        'px' => [ 'min' => 50, 'max' => 1000 ],
+                        'vw' => [ 'min' => 10, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content p, {{WRAPPER}}' => 'max-width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+
+
+            //  Hero subtitle bottom description section code start
+            $this->add_control(
+                'divider_0112222',
+                [
+                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'subtitle_bottom_des_color',
+                [
+                    'label' => esc_html__('Subtitle Bottom Des Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'default' => '#ffffff',
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content p span, {{WRAPPER}}' => 'color: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_bottom_des_typography',
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selector' => '{{WRAPPER}} .hero-style-1 .info-content p span, {{WRAPPER}} ',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_bottom_des_margin',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content p span, {{WRAPPER}} ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_bottom_des_width',
+                [
+                    'label' => esc_html__( 'Subtitle Bottom Des Width', 'kindaid' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ '%', 'px', 'vw' ],
+                    'condition' => [
+                        'chose_style' =>  [ 'banner-style-2' ],
+                    ],
+                    'range' => [
+                        '%' => [ 'min' => 10, 'max' => 100 ],
+                        'px' => [ 'min' => 50, 'max' => 1000 ],
+                        'vw' => [ 'min' => 10, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hero-style-1 .info-content p span, {{WRAPPER}}' => 'max-width: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
