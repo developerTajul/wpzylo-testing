@@ -566,7 +566,7 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button Text Style', 'zylo-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-                        'chose_style' =>  [ 'heading-style-2', 'heading-style-3' ],
+                        'chose_style' =>  [ 'heading-style-2', 'heading-style-3', 'heading-style-4' ],
                 ],
 			]
 		);
@@ -575,7 +575,7 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'service_btn_typography',
-				'selector' => '{{WRAPPER}} .btn-box .theme-btn',
+				'selector' => '{{WRAPPER}} .btn-box .theme-btn, {{WRAPPER}} .btn-box .secandary-btn',
 			]
 		);
 
@@ -585,7 +585,7 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button Text Color', 'zylo-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .theme-btn' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .theme-btn, {{WRAPPER}} .btn-box .secandary-btn' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -596,10 +596,11 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button Text Hover Color', 'zylo-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .theme-btn:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .theme-btn:hover, {{WRAPPER}} .btn-box .secandary-btn:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
+
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Background::get_type(),
@@ -608,8 +609,19 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button Background', 'zylo-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .theme-btn',
+				'conditions' => [
+					'relation' => 'and',
+					'terms' => [
+						[
+							'name' => 'chose_style',
+							'operator' => 'in',
+							'value' => ['heading-style-2', 'heading-style-4'],
+						],
+					],
+				],
 			]
 		);
+
 
 		$this->add_responsive_control(
 			'btn_border_color',
@@ -619,8 +631,12 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .theme-btn' => 'border-color: {{VALUE}};',
 				],
+				'condition' => [
+					'chose_style' => [ 'heading-style-2', 'heading-style-4' ],
+				],
 			]
 		);
+
 
 		$this->add_responsive_control(
 			'btn_padding',

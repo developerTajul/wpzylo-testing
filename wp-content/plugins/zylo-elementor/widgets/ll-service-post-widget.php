@@ -1101,7 +1101,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                         <span class="line line-3"></span>
                         <span class="line line-4"></span>
                     </div>
-                    <div class="container-fluid service_section_pd">
+                    <div class="container-fluid pt-112 pb-140 service_section_pd">
                         <div class="row">
                             <div class="col-xl-4 col-lg-12 col-md-6 mt-30">
                                 <div class="section-content">
