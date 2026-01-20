@@ -565,6 +565,9 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Button Text Style', 'zylo-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+                        'chose_style' =>  [ 'heading-style-2', 'heading-style-3' ],
+                ],
 			]
 		);
 
@@ -582,7 +585,7 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button Text Color', 'zylo-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-content .btn-box .theme-btn, {{WRAPPER}} .section-content .btn-box .secandary-btn' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .theme-btn' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -593,7 +596,7 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button Text Hover Color', 'zylo-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .section-content .btn-box .theme-btn:hover, {{WRAPPER}} .section-content .btn-box .secandary-btn:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .theme-btn:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
