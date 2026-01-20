@@ -89,6 +89,66 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
      * @access protected
      */
     protected function register_controls() {
+
+
+         $this->start_controls_section(
+            'section_heading_services',
+            [
+                'label' => esc_html__('Services Heading', 'zylo-elementor'),
+                'condition' => [
+					'chose_style' => ['service-style-1']
+				],
+            ]
+        );
+
+        		
+		$this->add_control(
+			'sub_heading',
+			[
+				'label'       => __( 'Sub Heading', 'zylo-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'placeholder' => __( 'Enter your sub heading', 'zylo-elementor' ),
+				'default'     => __( 'Best Services', 'zylo-elementor' ),
+				'label_block' => true,
+				'condition' => [
+					'chose_style' => ['service-style-1']
+				],
+			]
+		);	
+		$this->add_control(
+			'sub_heading_icon',
+			[
+				'label'       => __( 'Sub Heading Icon', 'zylo-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'placeholder' => __( 'Enter your sub heading icon', 'zylo-elementor' ),
+				'default'     => __( 'fa-regular fa-arrow-right-long', 'zylo-elementor' ),
+				'label_block' => true,
+				'condition' => [
+					'chose_style' => ['service-style-1']
+				],
+			]
+		);	
+
+
+        $this->add_control(
+			'heading',
+			[
+				'label'       => __( 'Heading', 'zylo-elementor' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'placeholder' => __( 'Enter your heading', 'zylo-elementor' ),
+				'default'     => __( 'Business Consulting Services', 'zylo-elementor' ),
+				'label_block' => true,
+				'condition' => [
+					'chose_style' => ['service-style-1']
+				],
+			]
+		);
+
+
+        $this->end_controls_section();
+
+
+
         // Content Section
         $this->start_controls_section(
             'section_content_services',
@@ -1116,8 +1176,24 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                         <div class="row">
                             <div class="col-xl-4 col-lg-12 col-md-6 mt-30">
                                 <div class="section-content">
-                                    <h6 class="subtitle wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.3s"><span><i class="fa-regular fa-arrow-right-long"></i> </span>Best Services</h6>
-                                    <h2 class="section-title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">Business Consulting Services</h2>
+                                    <?php
+                                    if(!empty($settings['sub_heading']) || !empty($settings['sub_heading_icon'])) : ?>
+                                        <h6 class="subtitle wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                                            <?php 
+                                            if(!empty($settings['sub_heading_icon'])) : ?>
+                                                <span><i class="<?php echo esc_attr($settings['sub_heading_icon']); ?>"></i></span>
+                                            <?php 
+                                            endif; ?>
+                                            <?php echo esc_html($settings['sub_heading']); ?>
+                                        </h6>
+                                    <?php 
+                                    endif; ?>
+
+                                    <?php 
+                                    if(!empty($settings['heading'])) : ?>
+                                        <h2 class="section-title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s"><?php echo esc_html($settings['heading']); ?></h2>
+                                    <?php 
+                                    endif; ?>
                                 </div>
                             </div>
                             <?php while ($q->have_posts()) : $q->the_post();
