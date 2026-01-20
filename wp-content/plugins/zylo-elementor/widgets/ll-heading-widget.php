@@ -281,242 +281,281 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+
 		// Sub Heading Style
 		$this->start_controls_section(
 			'sub_heading_style',
-			[
-				'label' => esc_html__( 'Sub Heading Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+				[
+					'label' => esc_html__( 'Sub Heading Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
-		$this->add_responsive_control(
-			'sub_heading_color',
-			[
-				'label' => esc_html__( 'Sub Heading Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .section-content h6.subtitle, {{WRAPPER}} .section-title .short-title' => 'color: {{VALUE}} !important',
-				],
-			]
-		);
+			$this->add_responsive_control(
+				'sub_heading_color',
+				[
+					'label' => esc_html__( 'Sub Heading Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .section-content h6.subtitle, {{WRAPPER}} .section-title .short-title' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'sub_heading_typography',
-				'selector' => '{{WRAPPER}} .section-content h6.subtitle, {{WRAPPER}} .section-title .short-title',
-			]
-		);
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'sub_heading_typography',
+					'selector' => '{{WRAPPER}} .section-content h6.subtitle, {{WRAPPER}} .section-title .short-title',
+				]
+			);
 
-		$this->add_responsive_control(
-			'sub_heading_margin',
-			[
-				'label'      => esc_html__( 'Margin', 'zylo-elementor' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem' ], 
-				'selectors'  => [
-					'{{WRAPPER}} .section-content h6.subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'default'    => [
-					'top'      => '',
-					'right'    => '',
-					'bottom'   => '',
-					'left'     => '',
-					'unit'     => 'px',
-					'isLinked' => false,
-				],
-			]
-		);
+			$this->add_responsive_control(
+				'sub_heading_margin',
+				[
+					'label'      => esc_html__( 'Margin', 'zylo-elementor' ),
+					'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem' ], 
+					'selectors'  => [
+						'{{WRAPPER}} .section-content h6.subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'default'    => [
+						'top'      => '',
+						'right'    => '',
+						'bottom'   => '',
+						'left'     => '',
+						'unit'     => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
 
 
-		$this->add_responsive_control(
-			'sub_heading_padding',
-			[
-				'label' => esc_html__( 'Padding', 'zylo-elementor' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors' => [
-					'{{WRAPPER}} .section-content h6.subtitle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => '',
-                    'right' => '',
-                    'bottom' => '',
-                    'left' => '',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-			]
-		);
+			$this->add_responsive_control(
+				'sub_heading_padding',
+				[
+					'label' => esc_html__( 'Padding', 'zylo-elementor' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-content h6.subtitle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'default' => [
+						'top' => '',
+						'right' => '',
+						'bottom' => '',
+						'left' => '',
+						'unit' => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'sub_heading_margin_2',
+				[
+					'label'      => esc_html__( 'Sub Title Margin', 'zylo-elementor' ),
+					'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem' ], 
+					'selectors' => [
+                        '{{WRAPPER}} .subtitle span, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+					'default'    => [
+						'top'      => '',
+						'right'    => '',
+						'bottom'   => '',
+						'left'     => '',
+						'unit'     => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
 
 		$this->end_controls_section();
 
 		// Heading Style
 		$this->start_controls_section(
 			'heading_style',
-			[
-				'label' => esc_html__( 'Heading Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+				[
+					'label' => esc_html__( 'Heading Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
-		$this->add_responsive_control(
-			'heading_color',
-			[
-				'label' => esc_html__( 'Heading Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .section-content h2.section-title' => 'color: {{VALUE}} !important',
-				],
-			]
-		);
+			$this->add_responsive_control(
+				'heading_color',
+				[
+					'label' => esc_html__( 'Heading Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .section-content h2.section-title' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'heading_typography',
-				'selector' => '{{WRAPPER}} .section-content h2.section-title',
-			]
-		);
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'heading_typography',
+					'selector' => '{{WRAPPER}} .section-content h2.section-title',
+				]
+			);
 
-		$this->add_responsive_control(
-			'heading_stroke_color',
-			[
-				'label' => esc_html__( 'Stroke Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'condition' => [
-					'chose_style' => 'heading-style-1',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .section-content h2.section-title' => '-webkit-text-stroke: 2px {{VALUE}};',
-				],
-			]
-		);
+			$this->add_responsive_control(
+				'heading_stroke_color',
+				[
+					'label' => esc_html__( 'Stroke Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'condition' => [
+						'chose_style' => 'heading-style-1',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .section-content h2.section-title' => '-webkit-text-stroke: 2px {{VALUE}};',
+					],
+				]
+			);
 
-		$this->add_responsive_control(
-			'heading_fill_color',
-			[
-				'label' => esc_html__( 'Fill Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'condition' => [
-					'chose_style' => 'heading-style-1',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .section-content h2.section-title' => '-webkit-text-fill-color: {{VALUE}};',
-				],
-			]
-		);
+			$this->add_responsive_control(
+				'heading_fill_color',
+				[
+					'label' => esc_html__( 'Fill Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'condition' => [
+						'chose_style' => 'heading-style-1',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .section-content h2.section-title' => '-webkit-text-fill-color: {{VALUE}};',
+					],
+				]
+			);
 
-		$this->add_responsive_control(
-			'heading_margin',
-			[
-				'label' => esc_html__( 'Margin', 'zylo-elementor' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors' => [
-					'{{WRAPPER}} .section-content h2.section-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => '',
-                    'right' => '',
-                    'bottom' => '',
-                    'left' => '',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-			]
-		);
+			$this->add_responsive_control(
+				'heading_margin',
+				[
+					'label' => esc_html__( 'Margin', 'zylo-elementor' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-content h2.section-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'default' => [
+						'top' => '',
+						'right' => '',
+						'bottom' => '',
+						'left' => '',
+						'unit' => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
 
-		$this->add_responsive_control(
-			'heading_padding',
-			[
-				'label' => esc_html__( 'Padding', 'zylo-elementor' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors' => [
-					'{{WRAPPER}} .section-content h2.section-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => '',
-                    'right' => '',
-                    'bottom' => '',
-                    'left' => '',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-			]
-		);
+			$this->add_responsive_control(
+				'heading_padding',
+				[
+					'label' => esc_html__( 'Padding', 'zylo-elementor' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-content h2.section-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'default' => [
+						'top' => '',
+						'right' => '',
+						'bottom' => '',
+						'left' => '',
+						'unit' => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+                'title_width',
+                [
+                    'label' => __( 'Heading Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-content h2.section-title' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
 
 		$this->end_controls_section();
+
 
 		// Description Style
 		$this->start_controls_section(
 			'desc_style',
-			[
-				'label' => esc_html__( 'Description Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+				[
+					'label' => esc_html__( 'Description Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
-		$this->add_responsive_control(
-			'desc_color',
-			[
-				'label' => esc_html__( 'Description Text Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .section-content p' => 'color: {{VALUE}} !important',
-				],
-			]
-		);
+			$this->add_responsive_control(
+				'desc_color',
+				[
+					'label' => esc_html__( 'Description Text Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .section-content p' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'desc_typography',
-				'selector' => '{{WRAPPER}} .section-content p',
-			]
-		);
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'desc_typography',
+					'selector' => '{{WRAPPER}} .section-content p',
+				]
+			);
 
-		$this->add_responsive_control(
-			'para_margin',
-			[
-				'label' => esc_html__( 'Margin', 'zylo-elementor' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors' => [
-					'{{WRAPPER}} .section-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => '',
-                    'right' => '',
-                    'bottom' => '',
-                    'left' => '',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-			]
-		);
+			$this->add_responsive_control(
+				'para_margin',
+				[
+					'label' => esc_html__( 'Margin', 'zylo-elementor' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'default' => [
+						'top' => '',
+						'right' => '',
+						'bottom' => '',
+						'left' => '',
+						'unit' => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
 
-		$this->add_responsive_control(
-			'para_padding',
-			[
-				'label' => esc_html__( 'Padding', 'zylo-elementor' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'selectors' => [
-					'{{WRAPPER}} .section-content p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => '',
-                    'right' => '',
-                    'bottom' => '',
-                    'left' => '',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-			]
-		);
+			$this->add_responsive_control(
+				'para_padding',
+				[
+					'label' => esc_html__( 'Padding', 'zylo-elementor' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-content p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'default' => [
+						'top' => '',
+						'right' => '',
+						'bottom' => '',
+						'left' => '',
+						'unit' => 'px',
+						'isLinked' => false,
+					],
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -565,7 +604,18 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				'name' => 'btn_background',
 				'label' => esc_html__( 'Button Background', 'zylo-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .section-content .btn-box .theme-btn, {{WRAPPER}} .section-content .btn-box .secandary-btn',
+				'selector' => '{{WRAPPER}} .theme-btn',
+			]
+		);
+
+		$this->add_responsive_control(
+			'btn_border_color',
+			[
+				'label' => __( 'Button Border Color', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .theme-btn' => 'border-color: {{VALUE}};',
+				],
 			]
 		);
 

@@ -331,18 +331,21 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
 
 
 
-        //  Title Style Start
+        //  Title Style 1 Start
         $this->start_controls_section(
-            'title_style',
+            'title_style_style_1',
                 [
-                    'label' => esc_html__('Title Style', 'zylo-elementor'),
+                    'label' => esc_html__('Title Style 1', 'zylo-elementor'),
                     'tab' => Controls_Manager::TAB_STYLE,
+                    'condition' => [
+                    'chose_style' => 'service-style-1',
+                    ],
                 ]
             );
 
             
             $this->add_control(
-                'subtitle_icon_color_22',
+                'subtitle_icon_color_style_1',
                 [
                     'label' => esc_html__('Sub Title Icon Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
@@ -355,13 +358,13 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-                    'name' => 'subtitle_icon_typography',
+                    'name' => 'subtitle_icon_typography_style_1',
                     'selector' => '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a',
                 ]
             );
 
             $this->add_control(
-                'subtitle_icon_bg_color',
+                'subtitle_icon_bg_color_style_1',
                 [
                     'label' => esc_html__('Icon Background Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
@@ -372,7 +375,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             );
 
             $this->add_responsive_control(
-                'subtitle_custom_width',
+                'subtitle_custom_width_style_1',
                 [
                     'label' => __( 'Icon Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -389,7 +392,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             );
 
             $this->add_responsive_control(
-                'subtitle_custom_height',
+                'subtitle_custom_height_style_1',
                 [
                     'label' => __( 'Icon Height', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -405,7 +408,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 ]
             );
             $this->add_responsive_control(
-                'custom_line_height',
+                'custom_line_height_style_1',
                 [
                     'label' => __( 'Icon Line Height', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -422,7 +425,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             );
 
             $this->add_responsive_control(
-                'subtitle_margin_222',
+                'subtitle_icon_margin_style_1',
                 [
                     'label' => esc_html__('Margin', 'zylo-elementor'),
                     'type' => Controls_Manager::DIMENSIONS,
@@ -441,7 +444,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             );
 
             $this->add_control(
-                'subtitle_color_22',
+                'subtitle_color_style_1',
                 [
                     'label' => esc_html__('Sub Title Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
@@ -454,13 +457,13 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-                    'name' => 'subtitle_typography',
+                    'name' => 'subtitle_typography_style_1',
                     'selector' => '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a',
                 ]
             );
 
             $this->add_responsive_control(
-                'subtitle_width',
+                'subtitle_width_style_1',
                 [
                     'label' => __( 'Sub Title Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -477,7 +480,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             );
 
             $this->add_responsive_control(
-                'subtitle_padding_22',
+                'subtitle_padding_style_1',
                 [
                     'label' => esc_html__('Padding', 'zylo-elementor'),
                     'type' => Controls_Manager::DIMENSIONS,
@@ -488,7 +491,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 ]
             );
             $this->add_responsive_control(
-                'subtitle_margin_22',
+                'subtitle_margin_style_1',
                 [
                     'label' => esc_html__('Margin', 'zylo-elementor'),
                     'type' => Controls_Manager::DIMENSIONS,
@@ -511,7 +514,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
              //  title section Start
 
             $this->add_control(
-                'title_color_22',
+                'title_color_style_1',
                 [
                     'label' => esc_html__('Title Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
@@ -524,13 +527,13 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-                    'name' => 'heading_title_typography',
+                    'name' => 'heading_title_typography_style_1',
                     'selector' => '{{WRAPPER}} .section-title, {{WRAPPER}} .contact-btn a',
                 ]
             );
 
             $this->add_responsive_control(
-                'custom_width',
+                'custom_width_style_1',
                 [
                     'label' => __( 'Title Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
@@ -547,7 +550,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             );
 
             $this->add_responsive_control(
-                'title_padding_22',
+                'title_padding_style_1',
                 [
                     'label' => esc_html__('Padding', 'zylo-elementor'),
                     'type' => Controls_Manager::DIMENSIONS,
@@ -558,7 +561,251 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 ]
             );
             $this->add_responsive_control(
-                'title_margin_22',
+                'title_margin_style_1',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+        $this->end_controls_section();
+
+
+
+        //  Title Style 2 Start
+        $this->start_controls_section(
+            'title_style_style_2',
+                [
+                    'label' => esc_html__('Title Style 2', 'zylo-elementor'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                    'condition' => [
+                    'chose_style' => 'service-style-2',
+                    ],
+                ]
+            );
+
+            
+            $this->add_control(
+                'subtitle_icon_color_style_2',
+                [
+                    'label' => esc_html__('Sub Title Icon Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_icon_typography_style_2',
+                    'selector' => '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a',
+                ]
+            );
+
+            $this->add_control(
+                'subtitle_icon_bg_color_style_2',
+                [
+                    'label' => esc_html__('Icon Background Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span, {{WRAPPER}} .contact-btn a' => 'background: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_custom_width_style_2',
+                [
+                    'label' => __( 'Icon Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_custom_height_style_2',
+                [
+                    'label' => __( 'Icon Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'custom_line_height_style_2',
+                [
+                    'label' => __( 'Icon Line Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_icon_margin_style_2',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'divider_0112244',
+                [
+                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                ]
+            );
+
+            $this->add_control(
+                'subtitle_color_style_2',
+                [
+                    'label' => esc_html__('Sub Title Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_typography_style_2',
+                    'selector' => '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_width_style_2',
+                [
+                    'label' => __( 'Sub Title Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'subtitle_padding_style_2',
+                [
+                    'label' => esc_html__('Padding', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'subtitle_margin_style_2',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            //  Subtitle section end
+
+            $this->add_control(
+                'divider_0111_style_2',
+                    [
+                        'type' => \Elementor\Controls_Manager::DIVIDER,
+                    ]
+                );
+
+             //  title section Start
+
+            $this->add_control(
+                'title_color_style_2',
+                [
+                    'label' => esc_html__('Title Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'heading_title_typography_style_2',
+                    'selector' => '{{WRAPPER}} .section-title, {{WRAPPER}} .contact-btn a',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'custom_width_style_2',
+                [
+                    'label' => __( 'Title Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'title_padding_style_2',
+                [
+                    'label' => esc_html__('Padding', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'title_margin_style_2',
                 [
                     'label' => esc_html__('Margin', 'zylo-elementor'),
                     'type' => Controls_Manager::DIMENSIONS,
