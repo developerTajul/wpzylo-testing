@@ -322,7 +322,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => ['px', '%', 'em'],
                     'selectors' => [
-                        '{{WRAPPER}} .service_section_pd' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .service_section_pd, {{WRAPPER}} .service-style-4' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -336,6 +336,9 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 [
                     'label' => esc_html__('Single Card Style', 'zylo-elementor'),
                     'tab' => Controls_Manager::TAB_STYLE,
+                    'condition' => [
+                    'chose_style' => 'service-style-2',
+                    ],
                 ]
             );
 
@@ -658,8 +661,38 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 [
                     'label' => esc_html__('Title  Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
+                    'condition' => [
+						'chose_style' => ['service-style-1', 'service-style-2'],
+					],
                     'selectors' => [
                         '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'title_color_style_3',
+                [
+                    'label' => esc_html__('Title  Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'condition' => [
+						'chose_style' => 'service-style-3',
+					],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-4 .service .service__content .title' => 'color: {{VALUE}} !important;',
+                    ],
+                ]
+            );
+            $this->add_control(
+                'title_hover_color_style_3',
+                [
+                    'label' => esc_html__('Title Hover Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'condition' => [
+						'chose_style' => 'service-style-3',
+					],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-4 .service:hover .service__content .title' => 'color: {{VALUE}} !important;',
                     ],
                 ]
             );
@@ -683,6 +716,19 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 [
                     'name' => 'title_typography',
                     'selector' => '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title',
+                    'condition' => [
+						'chose_style' => ['service-style-1', 'service-style-2'],
+					],
+                ]
+            );
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'title_typography_style_3',
+                    'condition' => [
+						'chose_style' => ['service-style-3'],
+					],
+                    'selector' => '{{WRAPPER}} .service-style-4 .service .service__content .title',
                 ]
             );
 
@@ -691,6 +737,9 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 [
                     'label' => __( 'Title Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
+                    'condition' => [
+						'chose_style' => ['service-style-1', 'service-style-2'],
+					],
                     'size_units' => [ 'px', '%', 'vw' ],
                     'range' => [
                         'px' => [ 'min' => 0, 'max' => 2000 ],
@@ -702,15 +751,51 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     ],
                 ]
             );
+            $this->add_responsive_control(
+                'title_width_style_3',
+                [
+                    'label' => __( 'Title Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'condition' => [
+						'chose_style' => ['service-style-3'],
+					],
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-4 .service .service__content .title' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
 
             $this->add_responsive_control(
                 'title_margin',
                 [
                     'label' => esc_html__('Margin', 'zylo-elementor'),
                     'type' => Controls_Manager::DIMENSIONS,
+                    'condition' => [
+						'chose_style' => ['service-style-1', 'service-style-2'],
+					],
                     'size_units' => ['px', '%', 'em'],
                     'selectors' => [
                         '{{WRAPPER}} .section-title-md, {{WRAPPER}} .title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'title_margin_style_3',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'condition' => [
+						'chose_style' => ['service-style-3'],
+					],
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-4 .service .service__content .title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -731,8 +816,24 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 [
                     'label' => esc_html__('Description Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
+                    'condition' => [
+                        'chose_style' => ['service-style-1', 'service-style-2'],
+                    ],
                     'selectors' => [
-                        '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .service__content p, {{WRAPPER}} .service-style-4 .service__content .text-white' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+            $this->add_control(
+                'description_color_style_3',
+                [
+                    'label' => esc_html__('Description Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'condition' => [
+                        'chose_style' => ['service-style-3'],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-4 .service__content p' => 'color: {{VALUE}} !important;',
                     ],
                 ]
             );
@@ -741,8 +842,21 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 [
                     'label' => esc_html__('Description Hover Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
+                    'condition' => [
+                        'chose_style' => ['service-style-1', 'service-style-2'],
+                    ],
                     'selectors' => [
                         '{{WRAPPER}} .service-style-2 .singleitem.active .content p' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'description_typography',
+                    'selector' => '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p',
+                    'condition' => [
+                        'chose_style' => ['service-style-1', 'service-style-2'],
                     ],
                 ]
             );
@@ -750,8 +864,11 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-                    'name' => 'description_typography',
-                    'selector' => '{{WRAPPER}} .service__content p, {{WRAPPER}} .content p',
+                    'name' => 'description_typography_style_3',
+                    'selector' => '{{WRAPPER}} .service-style-4 .service__content p',
+                    'condition' => [
+                        'chose_style' => ['service-style-3'],
+                    ],
                 ]
             );
 
@@ -761,13 +878,16 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'label' => __( 'Description Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%', 'vw' ],
+                    'condition' => [
+                        'chose_style' => ['service-style-3'],
+                    ],
                     'range' => [
                         'px' => [ 'min' => 0, 'max' => 2000 ],
                         '%'  => [ 'min' => 0, 'max' => 100 ],
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .service-style-2 .content p' => 'width: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .service-style-4 .service__content p' => 'width: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -776,7 +896,6 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
 
 
         //  Card Icon / Image Style Section
-
         $this->start_controls_section(
             'post_icon_style',
                 [
@@ -797,7 +916,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box img' => 'width: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box img, {{WRAPPER}} .service-style-4 .service__icon img' => 'width: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -816,7 +935,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => ['px', '%', 'em'],
                     'selectors' => [
-                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .service-style-1 .service__content .bg-img .icon-box, {{WRAPPER}} .service-style-4 .service__icon img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -827,6 +946,9 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'label' => __( 'Icon Background Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%', 'vw' ],
+                    'condition' => [
+                        'chose_style' => ['service-style-1', 'service-style-2'],
+                    ],
                     'range' => [
                         'px' => [ 'min' => 0, 'max' => 2000 ],
                         '%'  => [ 'min' => 0, 'max' => 100 ],
@@ -844,6 +966,9 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'label' => __( 'Icon Background Height', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%', 'vh' ],
+                    'condition' => [
+                        'chose_style' => ['service-style-1', 'service-style-2'],
+                    ],
                     'range' => [
                         'px' => [ 'min' => 0, 'max' => 2000 ],
                         '%'  => [ 'min' => 0, 'max' => 100 ],
@@ -861,6 +986,9 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'label' => __( 'Icon Line Height', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%', 'em' ],
+                    'condition' => [
+                        'chose_style' => ['service-style-1', 'service-style-2'],
+                    ],
                     'range' => [
                         'px' => [ 'min' => 0, 'max' => 2000 ],
                         '%'  => [ 'min' => 0, 'max' => 100 ],
