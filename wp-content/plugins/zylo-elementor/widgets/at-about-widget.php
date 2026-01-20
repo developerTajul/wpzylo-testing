@@ -676,43 +676,123 @@ class ZyloAbout extends \Elementor\Widget_Base {
 
 		$this->start_controls_section(
 			'about_quotation_style',
-			[
-				'label' => esc_html__( 'Quotation Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		); 
+				[
+					'label' => esc_html__( 'Quotation Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			); 
 
+			$this->add_responsive_control(
+				'about_quotation_icon_row_gap',
+				[
+					'label' => __( 'Quotation Icon Row Gap', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+					'size_units' => [ 'px' ], 
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 50,
+							'step' => 1,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a' => 'gap: {{SIZE}}px;',
+					],
+					'default' => [
+						'size' => 16,
+					],
+				]
+			);
 		
-		$this->add_control(
-            'about_quote_font_color',
-            [
-                'label' => __( 'Author Quote Color', 'zylo-elementor' ),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .about-info-card.style-1 .quote' => 'color: {{VALUE}};',
+			$this->add_control(
+				'about_quotation_icon_color',
+				[
+					'label' => __( 'Quotation Icon Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg path' => 'fill: {{VALUE}} !important;',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+                'about_quotation_icon_width',
+                [
+                    'label' => __( 'Quotation Icon Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
                 ]
-            ]
-        );
+            );
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'about_quote_typography',
-				'selector' => '{{WRAPPER}} .about-info-card.style-1 .quote',
-			]
-		);
+			$this->add_responsive_control(
+                'about_quotation_icon_height',
+                [
+                    'label' => __( 'Quotation Icon Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'condition' => [
+                        'chose_style' => ['about-style-1'],
+                    ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
 
-		$this->add_responsive_control(
-			'about_quote_bg_color',
-			[
-				'label' => esc_html__( 'Quote Background Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .about-info-card .about-info-content .quote::before' => 'background-color: {{VALUE}} !important',
-				],
-			]
-		);
+
+			$this->add_control(
+				'about_quote_font_color',
+				[
+					'label' => __( 'Author Quote Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a' => 'color: {{VALUE}};',
+					]
+				]
+			);
+
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'about_quote_typography',
+					'selector' => '{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a',
+				]
+			);
+
+			$this->add_responsive_control(
+				'about_quote_bg_color',
+				[
+					'label' => esc_html__( 'Quote Background Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .about-info-card .about-info-content .quote::before' => 'background-color: {{VALUE}} !important',
+					],
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -739,11 +819,21 @@ class ZyloAbout extends \Elementor\Widget_Base {
 		]
 	);
 
+
+	$this->add_control(
+		'separator_button_heading',
+		[
+			'type' => \Elementor\Controls_Manager::HEADING,
+			'label' => __( 'Button Title Here', 'textdomain' ),
+			'separator' => 'before',
+		]
+	);
+
 	$this->add_group_control(
 		Group_Control_Typography::get_type(),
 		[
 			'name' => 'banner_btn_typography',
-			'selector' => '{{WRAPPER}} .theme-btn',
+			'selector' => '{{WRAPPER}} .btn-box .secandary-btn',
 		]
 	);
 	
@@ -754,7 +844,141 @@ class ZyloAbout extends \Elementor\Widget_Base {
 			'label' => esc_html__( 'Text Color', 'eyewell-elementor' ),
 			'type' => Controls_Manager::COLOR,
 			'selectors' => [
-				'{{WRAPPER}} .theme-btn' => 'color: {{VALUE}} !important',
+				'{{WRAPPER}} .btn-box .secandary-btn' => 'color: {{VALUE}} !important',
+			],
+		]
+	);
+
+	$this->add_responsive_control(
+		'about_list_icon_width',
+		[
+			'label' => __( 'List Icon Width', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'condition' => [
+				'chose_style' => ['about-style-1'],
+			],
+			'size_units' => [ 'px', '%', 'vw' ],
+			'range' => [
+				'px' => [ 'min' => 0, 'max' => 2000 ],
+				'%'  => [ 'min' => 0, 'max' => 100 ],
+				'vw' => [ 'min' => 0, 'max' => 100 ],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
+			],
+		]
+	);
+
+	$this->add_responsive_control(
+		'about_list_icon_height',
+		[
+			'label' => __( 'List Icon Height', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'size_units' => [ 'px', '%', 'vh' ],
+			'condition' => [
+				'chose_style' => ['about-style-1'],
+			],
+			'range' => [
+				'px' => [ 'min' => 0, 'max' => 2000 ],
+				'%'  => [ 'min' => 0, 'max' => 100 ],
+				'vh' => [ 'min' => 0, 'max' => 100 ],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}} !important;',
+			],
+		]
+	);
+
+	$this->add_control(
+		'divider_01122',
+		[
+			'type' => \Elementor\Controls_Manager::DIVIDER,
+		]
+	);
+
+	$this->add_control(
+		'separator_heading_style',
+		[
+			'type' => \Elementor\Controls_Manager::HEADING,
+			'label' => __( 'Button Icon Style', 'textdomain' ),
+			'separator' => 'before',
+		]
+	);
+
+	$this->add_responsive_control(
+		'about_button_icon_width',
+		[
+			'label' => __( 'List Icon Width', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'condition' => [
+				'chose_style' => ['about-style-1'],
+			],
+			'size_units' => [ 'px', '%', 'vw' ],
+			'range' => [
+				'px' => [ 'min' => 0, 'max' => 2000 ],
+				'%'  => [ 'min' => 0, 'max' => 100 ],
+				'vw' => [ 'min' => 0, 'max' => 100 ],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
+			],
+		]
+	);
+
+	$this->add_responsive_control(
+		'about_button_icon_height',
+		[
+			'label' => __( 'List Icon Height', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'size_units' => [ 'px', '%', 'vh' ],
+			'condition' => [
+				'chose_style' => ['about-style-1'],
+			],
+			'range' => [
+				'px' => [ 'min' => 0, 'max' => 2000 ],
+				'%'  => [ 'min' => 0, 'max' => 100 ],
+				'vh' => [ 'min' => 0, 'max' => 100 ],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}} !important;',
+			],
+		]
+	);
+
+	// Line Height
+	$this->add_responsive_control(
+		'about_button_icon_line_height',
+		[
+			'label' => __( 'Icon Line Height', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'size_units' => [ 'px' ],
+			'range' => [
+				'px' => [ 'min' => 10, 'max' => 200 ],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .btn-box .secandary-btn span' => 'line-height: {{SIZE}}px !important;',
+			],
+			'default' => [
+				'size' => 64,
+			],
+		]
+	);
+
+
+	$this->add_responsive_control(
+		'about_button_icon_margin_right',
+		[
+			'label' => __( 'Margin', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'size_units' => [ 'px' ],
+			'range' => [
+				'px' => [ 'min' => 0, 'max' => 100 ],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .btn-box .secandary-btn span' => 'margin-right: {{SIZE}}px !important;',
+			],
+			'default' => [
+				'size' => 20,
 			],
 		]
 	);
@@ -826,10 +1050,10 @@ class ZyloAbout extends \Elementor\Widget_Base {
 	$this->add_responsive_control(
 		'banner_btn_hover_color',
 		[
-			'label' => esc_html__( 'Color', 'eyewell-elementor' ),
+			'label' => esc_html__( 'Btn Title Color', 'eyewell-elementor' ),
 			'type' => Controls_Manager::COLOR,
 			'selectors' => [
-				'{{WRAPPER}} .theme-btn:hover' => 'color: {{VALUE}} !important',
+				'{{WRAPPER}} .btn-box .secandary-btn:hover' => 'color: {{VALUE}} !important',
 			],
 		]
 	);
