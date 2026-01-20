@@ -11,18 +11,6 @@ get_header(); ?>
 <?php
 if (have_posts()) :
     while (have_posts()) : the_post();
-        // related services
-        $left_service_icon = get_post_meta(get_the_ID(), 'left_service_icon', true);
-        $left_service_title = get_post_meta(get_the_ID(), 'left_service_title', true);
-        $left_service_link = get_post_meta(get_the_ID(), 'left_service_link', true);
-        $left_service_desc = get_post_meta(get_the_ID(), 'left_service_desc', true);
-
-        $right_service_title = get_post_meta(get_the_ID(), 'right_service_title', true);
-        $right_service_link = get_post_meta(get_the_ID(), 'right_service_link', true);
-        $right_service_desc = get_post_meta(get_the_ID(), 'right_service_desc', true);
-        $right_service_icon = get_post_meta(get_the_ID(), 'right_service_icon', true);
-
-
         $service_details_image = get_post_meta(get_the_ID(), 'service_single_thumb_img', true);
         $service_icon_img = get_post_meta(get_the_ID(), 'service_icon_image', true);
         $tiny_content = get_post_meta(get_the_ID(), 'service_tiny_text', true);
@@ -116,16 +104,37 @@ if (have_posts()) :
                                             <div class="service active-hover">
                                                 <div class="service__itembox">
                                                     <div class="service__itembox-content">
-                                                        <h3 class="section-title-md"> <a href="<?php echo esc_url( $left_service_link ); ?>"> <?php echo wp_kses_post( $left_service_title ); ?></a></h3>
-                                                        <p><?php echo wp_kses_post( $left_service_desc ); ?></p>
+                                                        <h3 class="section-title-md"> <a href="<?php the_permalink(); ?>"> Training and <br>
+                                                        Development</a></h3>
+                                                        <p>We take time and effort to accurately review everything about your business and your <br> industry.</p>
                                                     </div>
                                                     <span class="service__itembox-shape">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="450" height="320" viewBox="0 0 450 320" fill="none"><mask id="a" fill="#fff"><path fill-rule="evenodd" clip-rule="evenodd" d="M321 30c0-16.568-13.431-30-30-30H30C13.432 0 0 13.432 0 30v260c0 16.569 13.432 30 30 30h390c16.569 0 30-13.431 30-30V159c0-16.569-13.431-30-30-30h-69c-16.569 0-30-13.431-30-30z"/></mask><path fill-rule="evenodd" clip-rule="evenodd" d="M321 30c0-16.568-13.431-30-30-30H30C13.432 0 0 13.432 0 30v260c0 16.569 13.432 30 30 30h390c16.569 0 30-13.431 30-30V159c0-16.569-13.431-30-30-30h-69c-16.569 0-30-13.431-30-30z" fill="#fff"/><path d="M30 1h261v-2H30zM1 290V30h-2v260zm419 29H30v2h390zm29-160v131h2V159zm-29-31h-69v2h69zm-98-29V30h-2v69zm29 29c-16.016 0-29-12.984-29-29h-2c0 17.121 13.879 31 31 31zm100 31c0-17.121-13.879-31-31-31v2c16.016 0 29 12.984 29 29zm-31 162c17.121 0 31-13.879 31-31h-2c0 16.016-12.984 29-29 29zM-1 290c0 17.121 13.88 31 31 31v-2c-16.016 0-29-12.984-29-29zM291 1c16.016 0 29 12.984 29 29h2c0-17.12-13.879-31-31-31zM30-1C12.88-1-1 12.88-1 30h2C1 13.984 13.984 1 30 1z" fill="#c7c9ca" mask="url(#a)"/></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="450" height="320" viewBox="0 0 450 320" fill="none">
+                                                            <mask id="path-1-inside-1_4433_8010" fill="white">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M321 30C321 13.4315 307.569 0 291 0H30C13.4315 0 0 13.4315 0 30V290C0 306.569 13.4315 320 30 320H420C436.569 320 450 306.569 450 290V159C450 142.431 436.569 129 420 129H351C334.431 129 321 115.569 321 99V30Z"/>
+                                                            </mask>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M321 30C321 13.4315 307.569 0 291 0H30C13.4315 0 0 13.4315 0 30V290C0 306.569 13.4315 320 30 320H420C436.569 320 450 306.569 450 290V159C450 142.431 436.569 129 420 129H351C334.431 129 321 115.569 321 99V30Z" fill="white"/>
+                                                            <path d="M30 1H291V-1H30V1ZM1 290V30H-1V290H1ZM420 319H30V321H420V319ZM449 159V290H451V159H449ZM420 128H351V130H420V128ZM322 99V30H320V99H322ZM351 128C334.984 128 322 115.016 322 99H320C320 116.121 333.879 130 351 130V128ZM451 159C451 141.879 437.121 128 420 128V130C436.016 130 449 142.984 449 159H451ZM420 321C437.121 321 451 307.121 451 290H449C449 306.016 436.016 319 420 319V321ZM-1 290C-1 307.121 12.8792 321 30 321V319C13.9837 319 1 306.016 1 290H-1ZM291 1C307.016 1 320 13.9837 320 30H322C322 12.8792 308.121 -1 291 -1V1ZM30 -1C12.8792 -1 -1 12.8792 -1 30H1C1 13.9837 13.9837 1 30 1V-1Z" fill="#C7C9CA" mask="url(#path-1-inside-1_4433_8010)"/>
+                                                        </svg>
                                                     </span>
             
                                                     <div class="service__itembox-icon">
                                                         <a href="<?php the_permalink(); ?>">
-                                                            <?php echo $left_service_icon; ?>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="75" viewBox="0 0 82 75" fill="none">
+                                                                <g clip-path="url(#clip0_4443_259)">
+                                                                    <g opacity="0.5">
+                                                                    <path d="M79.6605 52.7927H1.42905C1.03381 52.7927 0.712402 52.4713 0.712402 52.076C0.712402 51.6808 1.03381 51.3594 1.42905 51.3594H79.6605C80.0557 51.3594 80.3771 51.6808 80.3771 52.076C80.3771 52.4713 80.0557 52.7927 79.6605 52.7927Z" fill="#707070"/>
+                                                                    </g>
+                                                                    <path d="M40.5447 75C18.1897 75 0 64.7151 0 52.0761V1.42894C0 0.638464 0.638464 0 1.42894 0C2.21942 0 2.85789 0.638464 2.85789 1.42894V52.0761C2.85789 63.1341 19.762 72.1334 40.5403 72.1334C61.3186 72.1334 78.2227 63.1341 78.2227 52.0761V1.42894C78.2227 0.638464 78.8612 0 79.6517 0C80.4422 0 81.0806 0.638464 81.0806 1.42894V52.0761C81.0893 64.7151 62.9039 75 40.5447 75Z" fill="#707070"/>
+                                                                    <path d="M40.5447 24.3528C18.1897 24.3528 0 14.0679 0 1.42894C0 0.638464 0.638464 0 1.42894 0H79.6604C80.4508 0 81.0893 0.638464 81.0893 1.42894C81.0893 14.0679 62.9039 24.3528 40.5447 24.3528ZM2.95778 2.86223C4.33895 13.2601 20.6697 21.4906 40.549 21.4906C60.4239 21.4906 76.759 13.2601 78.1402 2.86223H2.95778Z" fill="#707070"/>
+                                                                    <path d="M40.5447 75.0001C39.7542 75.0001 39.1157 74.3616 39.1157 73.5712V22.9197C39.1157 22.1292 39.7542 21.4907 40.5447 21.4907C41.3351 21.4907 41.9736 22.1292 41.9736 22.9197V73.5668C41.978 74.3573 41.3351 75.0001 40.5447 75.0001Z" fill="#707070"/>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="clip0_4443_259">
+                                                                    <rect width="81.0893" height="75" fill="white"/>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -135,16 +144,36 @@ if (have_posts()) :
                                             <div class="service active-hover">
                                                 <div class="service__itembox">
                                                     <div class="service__itembox-content">
-                                                        <h3 class="section-title-md"> <a href="<?php echo esc_url( $right_service_link ); ?>"> <?php echo wp_kses_post( $right_service_title ); ?></a></h3>
-                                                        <p><?php echo wp_kses_post( $right_service_desc ); ?></p>
+                                                        <h3 class="section-title-md"> <a href="<?php the_permalink(); ?>"> Facilities <br> Management</a></h3>
+                                                        <p>We take time and effort to accurately review everything about your business and your <br> industry.</p>
                                                     </div>
                                                     <span class="service__itembox-shape">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="450" height="320" viewBox="0 0 450 320" fill="none"><mask id="a" fill="#fff"><path fill-rule="evenodd" clip-rule="evenodd" d="M321 30c0-16.568-13.431-30-30-30H30C13.432 0 0 13.432 0 30v260c0 16.569 13.432 30 30 30h390c16.569 0 30-13.431 30-30V159c0-16.569-13.431-30-30-30h-69c-16.569 0-30-13.431-30-30z"/></mask><path fill-rule="evenodd" clip-rule="evenodd" d="M321 30c0-16.568-13.431-30-30-30H30C13.432 0 0 13.432 0 30v260c0 16.569 13.432 30 30 30h390c16.569 0 30-13.431 30-30V159c0-16.569-13.431-30-30-30h-69c-16.569 0-30-13.431-30-30z" fill="#fff"/><path d="M30 1h261v-2H30zM1 290V30h-2v260zm419 29H30v2h390zm29-160v131h2V159zm-29-31h-69v2h69zm-98-29V30h-2v69zm29 29c-16.016 0-29-12.984-29-29h-2c0 17.121 13.879 31 31 31zm100 31c0-17.121-13.879-31-31-31v2c16.016 0 29 12.984 29 29zm-31 162c17.121 0 31-13.879 31-31h-2c0 16.016-12.984 29-29 29zM-1 290c0 17.121 13.88 31 31 31v-2c-16.016 0-29-12.984-29-29zM291 1c16.016 0 29 12.984 29 29h2c0-17.12-13.879-31-31-31zM30-1C12.88-1-1 12.88-1 30h2C1 13.984 13.984 1 30 1z" fill="#c7c9ca" mask="url(#a)"/></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="450" height="320" viewBox="0 0 450 320" fill="none">
+                                                            <mask id="path-1-inside-1_4433_8010" fill="white">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M321 30C321 13.4315 307.569 0 291 0H30C13.4315 0 0 13.4315 0 30V290C0 306.569 13.4315 320 30 320H420C436.569 320 450 306.569 450 290V159C450 142.431 436.569 129 420 129H351C334.431 129 321 115.569 321 99V30Z"/>
+                                                            </mask>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M321 30C321 13.4315 307.569 0 291 0H30C13.4315 0 0 13.4315 0 30V290C0 306.569 13.4315 320 30 320H420C436.569 320 450 306.569 450 290V159C450 142.431 436.569 129 420 129H351C334.431 129 321 115.569 321 99V30Z" fill="white"/>
+                                                            <path d="M30 1H291V-1H30V1ZM1 290V30H-1V290H1ZM420 319H30V321H420V319ZM449 159V290H451V159H449ZM420 128H351V130H420V128ZM322 99V30H320V99H322ZM351 128C334.984 128 322 115.016 322 99H320C320 116.121 333.879 130 351 130V128ZM451 159C451 141.879 437.121 128 420 128V130C436.016 130 449 142.984 449 159H451ZM420 321C437.121 321 451 307.121 451 290H449C449 306.016 436.016 319 420 319V321ZM-1 290C-1 307.121 12.8792 321 30 321V319C13.9837 319 1 306.016 1 290H-1ZM291 1C307.016 1 320 13.9837 320 30H322C322 12.8792 308.121 -1 291 -1V1ZM30 -1C12.8792 -1 -1 12.8792 -1 30H1C1 13.9837 13.9837 1 30 1V-1Z" fill="#C7C9CA" mask="url(#path-1-inside-1_4433_8010)"/>
+                                                        </svg>
                                                     </span>
             
                                                     <div class="service__itembox-icon">
                                                         <a href="<?php the_permalink(); ?>">
-                                                            <?php echo $right_service_icon; ?>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="75" viewBox="0 0 82 75" fill="none">
+                                                                <g clip-path="url(#clip0_4443_259)">
+                                                                    <g opacity="0.5">
+                                                                    <path d="M79.6605 52.7927H1.42905C1.03381 52.7927 0.712402 52.4713 0.712402 52.076C0.712402 51.6808 1.03381 51.3594 1.42905 51.3594H79.6605C80.0557 51.3594 80.3771 51.6808 80.3771 52.076C80.3771 52.4713 80.0557 52.7927 79.6605 52.7927Z" fill="#707070"/>
+                                                                    </g>
+                                                                    <path d="M40.5447 75C18.1897 75 0 64.7151 0 52.0761V1.42894C0 0.638464 0.638464 0 1.42894 0C2.21942 0 2.85789 0.638464 2.85789 1.42894V52.0761C2.85789 63.1341 19.762 72.1334 40.5403 72.1334C61.3186 72.1334 78.2227 63.1341 78.2227 52.0761V1.42894C78.2227 0.638464 78.8612 0 79.6517 0C80.4422 0 81.0806 0.638464 81.0806 1.42894V52.0761C81.0893 64.7151 62.9039 75 40.5447 75Z" fill="#707070"/>
+                                                                    <path d="M40.5447 24.3528C18.1897 24.3528 0 14.0679 0 1.42894C0 0.638464 0.638464 0 1.42894 0H79.6604C80.4508 0 81.0893 0.638464 81.0893 1.42894C81.0893 14.0679 62.9039 24.3528 40.5447 24.3528ZM2.95778 2.86223C4.33895 13.2601 20.6697 21.4906 40.549 21.4906C60.4239 21.4906 76.759 13.2601 78.1402 2.86223H2.95778Z" fill="#707070"/>
+                                                                    <path d="M40.5447 75.0001C39.7542 75.0001 39.1157 74.3616 39.1157 73.5712V22.9197C39.1157 22.1292 39.7542 21.4907 40.5447 21.4907C41.3351 21.4907 41.9736 22.1292 41.9736 22.9197V73.5668C41.978 74.3573 41.3351 75.0001 40.5447 75.0001Z" fill="#707070"/>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="clip0_4443_259">
+                                                                    <rect width="81.0893" height="75" fill="white"/>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg>
                                                         </a>
                                                     </div>
                                                 </div>
