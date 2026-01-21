@@ -5,6 +5,7 @@ class ZyloServicePost {
         add_action('init', array($this, 'register_custom_post_type'));
         add_action('init', array($this, 'create_cat'));
         add_filter('cmb2_meta_boxes', array($this, 'add_meta'));
+        add_filter('cmb2_meta_boxes', array($this, 'add_additional_meta'));
         add_filter('cmb2_admin_init', array($this, 'add_list_item_meta'));
         add_filter('template_include', array($this, 'service_template_include'));
     }
@@ -134,12 +135,29 @@ class ZyloServicePost {
                     'type' => 'file',
                     'id'   => 'service_single_right_thumb_img',
                 ),
+
                 array(
-                    'name' => esc_html__('Service Gallery Images', 'zylo-toolkit'),
-                    'desc' => esc_html__('Upload images (425x562px recommended)', 'zylo-toolkit'),
-                    'type' => 'file_list',
-                    'id'   => 'service_gallery_images',
-                ),
+                    'name'    => esc_html__('Service Content', 'zylo-toolkit'),
+                    'desc'    => esc_html__('Additional service content', 'zylo-toolkit'),
+                    'id'      => 'service_tiny_text',
+                    'type'    => 'wysiwyg',
+                    'options' => array(
+                        'textarea_rows' => 10,
+                        'media_buttons' => true,
+                    ),
+                )
+            )
+        );
+        return $zylo;
+    }
+
+
+        public function add_additional_meta(array $zylo) {
+        $zylo[] = array(
+            'id'           => 'zylo-addtional-service-meta',
+            'title'        => esc_html__('Additional Service Info', 'zylo-toolkit'),
+            'object_types' => array('zylo-service'),
+            'fields'       => array(
                 array(
                     'name'    => esc_html__('Service Content', 'zylo-toolkit'),
                     'desc'    => esc_html__('Additional service content', 'zylo-toolkit'),
@@ -150,10 +168,55 @@ class ZyloServicePost {
                         'media_buttons' => true,
                     ),
                 ),
+                array(
+                    'name' => esc_html__('Left Service Title', 'zylo-toolkit'),
+                    'type' => 'text',
+                    'id'   => 'left_service_title',
+                ),
+                array(
+                    'name' => esc_html__('Left Service Link', 'zylo-toolkit'),
+                    'type' => 'text',
+                    'id'   => 'left_service_link',
+                ),
+                array(
+                    'name' => esc_html__('Left Service Description', 'zylo-toolkit'),
+                    'type' => 'text',
+                    'id'   => 'left_service_desc',
+                ),
+                array(
+                    'name' => esc_html__('Left Service Icon', 'zylo-toolkit'),
+                    'type' => 'textarea_code',
+                    'id'   => 'left_service_icon',
+                ),
+                array(
+                    'name' => esc_html__('Right Service Title', 'zylo-toolkit'),
+                    'type' => 'text',
+                    'id'   => 'right_service_title',
+                ),
+                array(
+                    'name' => esc_html__('Right Service Link', 'zylo-toolkit'),
+                    'type' => 'text',
+                    'id'   => 'right_service_link',
+                ),
+                array(
+                    'name' => esc_html__('Right Service Description', 'zylo-toolkit'),
+                    'type' => 'text',
+                    'id'   => 'right_service_desc',
+                ),
+                array(
+                    'name' => esc_html__('Right Service Icon', 'zylo-toolkit'),
+                    'type' => 'textarea_code',
+                    'id'   => 'right_service_icon',
+                ),
             )
         );
         return $zylo;
     }
+
+
+
+
+
 
     public function add_list_item_meta() {
         $list_items = new_cmb2_box(array(
