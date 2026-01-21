@@ -417,7 +417,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 
 
-		/** typography **/
+		/** Heading Style **/
 		$this->start_controls_section(
 			'member_style_heading',
 				[
@@ -434,7 +434,18 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
-						'{{WRAPPER}} .info-card.style-2 .title' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .team-style-1 .singleitem .singleitem__content .title a' => 'color: {{VALUE}};',
+					]
+				]
+			);
+			$this->add_control(
+				'member_post_heading_font_color_2',
+				[
+					'label' => __( 'Heading Hover Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem:hover .singleitem__content .title a' => 'color: {{VALUE}};',
 					]
 				]
 			);
@@ -443,7 +454,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 				\Elementor\Group_Control_Typography::get_type(),
 				[
 					'name' => 'heading_typography',
-					'selector' => '{{WRAPPER}} .info-card.style-2 .title',
+					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__content .title',
 				]
 			);
 
@@ -456,20 +467,31 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 	
 		$this->start_controls_section(
 			'member_style_desc',
-			[
-				'label' => esc_html__( 'Member Description', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+				[
+					'label' => esc_html__( 'Member Designation', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
 		$this->add_control(
 			'member_desc_font_color',
 			[
-				'label' => __( 'Description Color', 'zylo-elementor' ),
+				'label' => __( 'Designation Color', 'zylo-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .info-card.style-2 .desc' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .team-style-1 .singleitem__content span' => 'color: {{VALUE}};',
+				]
+			]
+		);
+		$this->add_control(
+			'member_desc_font_color_2',
+			[
+				'label' => __( 'Designation Hover Color', 'zylo-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .team-style-1 .singleitem:hover .singleitem__content span' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -478,40 +500,117 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'member_desc_typography',
-				'selector' => '{{WRAPPER}} .info-card.style-2 .desc',
+				'selector' => '{{WRAPPER}} .team-style-1 .singleitem__content span',
 			]
 		);
 
 		$this->end_controls_section();
 
 		
-
+		//  Team Member Social Info Style
 		$this->start_controls_section(
-			'member_style_number',
-			[
-				'label' => esc_html__( 'Member Number', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+			'member_social_info',
+				[
+					'label' => esc_html__( 'Member Social Info', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Text_Stroke::get_type(),
-			[
-				'name' => 'member_number_text_stroke',
-				'selector' => '{{WRAPPER}} .info-card.style-2 .counter-number-wrapper .counter-number',
-			]
-		);
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'typography_1',
+					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__social a',
+				]
+			);
 
+			$this->add_control(
+				'color_3',
+				[
+					'label' => __( 'Sicial Icon Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__social a' => 'color: {{VALUE}};',
+					]
+				]
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'member_number_typography',
-				'selector' => '{{WRAPPER}} .info-card.style-2 .counter-number',
-			]
-		);
+			$this->add_responsive_control(
+				'background_2',
+				[
+					'label' => esc_html__( 'Icon Background Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__social a' => 'background-color: {{VALUE}} !important',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+                'width_3',
+                [
+                    'label' => __( 'Social Icon Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .section-content h2.section-title' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+			$this->add_responsive_control(
+                'height_3',
+                [
+                    'label' => __( 'Social Icon Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .team-style-1 .singleitem__social a' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+			$this->add_responsive_control(
+                'line_height_3',
+                [
+                    'label' => __( 'Social Icon Line Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .team-style-1 .singleitem__social a' => 'line-height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+			$this->add_responsive_control(
+                'margin_1',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .team-style-1 .singleitem__social a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
 
 		$this->end_controls_section();
+
+
 
 		$this->start_controls_section(
 			'member_style_link',
