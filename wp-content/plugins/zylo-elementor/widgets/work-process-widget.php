@@ -331,6 +331,9 @@ class ZyloWorkProcess extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Quotation Style', 'zylo-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'chose_style' => 'process-style-1',
+				],
 			]
 		);
 
@@ -373,6 +376,9 @@ class ZyloWorkProcess extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Button Style', 'eyewell-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'chose_style' => 'process-style-1',
+				],
 			]
 		);
 

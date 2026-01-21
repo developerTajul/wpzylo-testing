@@ -211,7 +211,7 @@ class ZyloList extends \Elementor\Widget_Base {
 				'type'    => Controls_Manager::COLOR,
 				'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .el-section-title .el-heading' => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .work-style-1 .work-content .meta-box ul li a' => 'color: {{VALUE}} !important',
 				],
 			]
 		);
@@ -220,9 +220,56 @@ class ZyloList extends \Elementor\Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'list_heading_typography',
-				'selector' => '{{WRAPPER}} .el-section-title .el-heading',
+				'selector' => '{{WRAPPER}} .work-style-1 .work-content .meta-box ul li a',
 			]
 		);
+
+		$this->add_control(
+			'background_color_1',
+			[
+				'label' => esc_html__('Title Border Color', 'zylo-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .work-style-1 .work-content .meta-box ul li::after' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+
+		//  Icon Style Heading
+		$this->add_control(
+			'separator_heading_1',
+			[
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'label' => __( 'Icon Style Here', 'textdomain' ),
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'color_1',
+			[
+				'label'   => __( 'Icon Color', 'zylo-elementor' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .list-item .list-icon svg path' => 'fill: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'color_2',
+			[
+				'label'   => __( 'Icon Hover Color', 'zylo-elementor' ),
+				'type'    => Controls_Manager::COLOR,
+				'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .list-item:hover .list-icon svg path' => 'fill: {{VALUE}}',
+				],
+			]
+		);
+
+
 
 		$this->end_controls_section();
 
