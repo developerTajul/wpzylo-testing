@@ -682,6 +682,15 @@ class ZyloAbout extends \Elementor\Widget_Base {
 				]
 			); 
 
+			$this->add_control(
+				'separator_heading_style',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'SVG Icon Style', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
+
 			$this->add_responsive_control(
 				'about_quotation_icon_row_gap',
 				[
@@ -723,44 +732,44 @@ class ZyloAbout extends \Elementor\Widget_Base {
 			);
 
 			$this->add_responsive_control(
-                'about_quotation_icon_width',
-                [
-                    'label' => __( 'Quotation Icon Width', 'textdomain' ),
-                    'type' => \Elementor\Controls_Manager::SLIDER,
-                    'condition' => [
+				'about_button_icon_width',
+				[
+					'label' => __( 'List SVG Width', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'condition' => [
 						'chose_style' => ['about-style-1'],
 					],
-                    'size_units' => [ 'px', '%', 'vw' ],
-                    'range' => [
-                        'px' => [ 'min' => 0, 'max' => 2000 ],
-                        '%'  => [ 'min' => 0, 'max' => 100 ],
-                        'vw' => [ 'min' => 0, 'max' => 100 ],
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
-                    ],
-                ]
-            );
+					'size_units' => [ 'px', '%', 'vw' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vw' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
 
 			$this->add_responsive_control(
-                'about_quotation_icon_height',
-                [
-                    'label' => __( 'Quotation Icon Height', 'textdomain' ),
-                    'type' => \Elementor\Controls_Manager::SLIDER,
-                    'size_units' => [ 'px', '%', 'vh' ],
-                    'condition' => [
-                        'chose_style' => ['about-style-1'],
-                    ],
-                    'range' => [
-                        'px' => [ 'min' => 0, 'max' => 2000 ],
-                        '%'  => [ 'min' => 0, 'max' => 100 ],
-                        'vh' => [ 'min' => 0, 'max' => 100 ],
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}};',
-                    ],
-                ]
-            );
+				'about_button_icon_height',
+				[
+					'label' => __( 'List SVG Height', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%', 'vh' ],
+					'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vh' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}} !important;',
+					],
+				]
+			);
 
 
 			$this->add_control(
@@ -797,290 +806,294 @@ class ZyloAbout extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 
 
-	/** Start Button **/
-	$this->start_controls_section(
-		'banner_btn_style',
-		[
-			'label' => esc_html__( 'Button Style', 'eyewell-elementor'),
-			'tab' => Controls_Manager::TAB_STYLE,
+			/** Start Button **/
+			$this->start_controls_section(
+				'banner_btn_style',
+				[
+					'label' => esc_html__( 'Button Style', 'eyewell-elementor'),
+					'tab' => Controls_Manager::TAB_STYLE,
+					
+				]
+			);
+
+			$this->start_controls_tabs(
+				'style_tabs'
+			);
+
+
+			$this->start_controls_tab(
+				'style_normal_tab',
+				[
+					'label' => esc_html__( 'Normal', 'textdomain' ),
+				]
+			);
+
+
+			$this->add_control(
+				'separator_button_heading',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'Button Title Here', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'banner_btn_typography',
+					'selector' => '{{WRAPPER}} .btn-box .secandary-btn',
+				]
+			);
 			
-		]
-	);
 
-	$this->start_controls_tabs(
-		'style_tabs'
-	);
+			$this->add_responsive_control(
+				'banner_btn_text_color',
+				[
+					'label' => esc_html__( 'Text Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
 
+			$this->add_control(
+				'separator_heading_1',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'Button Icon Style', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
 
-	$this->start_controls_tab(
-		'style_normal_tab',
-		[
-			'label' => esc_html__( 'Normal', 'textdomain' ),
-		]
-	);
+			$this->add_responsive_control(
+				'button_icon_width_22',
+				[
+					'label' => __( 'Button Icon Width', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+					'size_units' => [ 'px', '%', 'vw' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vw' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn svg' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
 
+			$this->add_responsive_control(
+				'btn_margin',
+				[
+					'label' => esc_html__( 'Margin', 'eyewell-elementor' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn svg' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
 
-	$this->add_control(
-		'separator_button_heading',
-		[
-			'type' => \Elementor\Controls_Manager::HEADING,
-			'label' => __( 'Button Title Here', 'textdomain' ),
-			'separator' => 'before',
-		]
-	);
+			$this->add_control(
+				'separator_heading_2',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'Button Border Style', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
+			$this->add_responsive_control(
+				'about_button_icon_width_2',
+				[
+					'label' => __( 'Button Border Width', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+					'size_units' => [ 'px', '%', 'vw' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vw' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn span' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
 
-	$this->add_group_control(
-		Group_Control_Typography::get_type(),
-		[
-			'name' => 'banner_btn_typography',
-			'selector' => '{{WRAPPER}} .btn-box .secandary-btn',
-		]
-	);
-	
-
-	$this->add_responsive_control(
-		'banner_btn_text_color',
-		[
-			'label' => esc_html__( 'Text Color', 'eyewell-elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'selectors' => [
-				'{{WRAPPER}} .btn-box .secandary-btn' => 'color: {{VALUE}} !important',
-			],
-		]
-	);
-
-	$this->add_responsive_control(
-		'about_list_icon_width',
-		[
-			'label' => __( 'List Icon Width', 'textdomain' ),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'condition' => [
-				'chose_style' => ['about-style-1'],
-			],
-			'size_units' => [ 'px', '%', 'vw' ],
-			'range' => [
-				'px' => [ 'min' => 0, 'max' => 2000 ],
-				'%'  => [ 'min' => 0, 'max' => 100 ],
-				'vw' => [ 'min' => 0, 'max' => 100 ],
-			],
-			'selectors' => [
-				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
-			],
-		]
-	);
-
-	$this->add_responsive_control(
-		'about_list_icon_height',
-		[
-			'label' => __( 'List Icon Height', 'textdomain' ),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'size_units' => [ 'px', '%', 'vh' ],
-			'condition' => [
-				'chose_style' => ['about-style-1'],
-			],
-			'range' => [
-				'px' => [ 'min' => 0, 'max' => 2000 ],
-				'%'  => [ 'min' => 0, 'max' => 100 ],
-				'vh' => [ 'min' => 0, 'max' => 100 ],
-			],
-			'selectors' => [
-				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}} !important;',
-			],
-		]
-	);
-
-	$this->add_control(
-		'divider_01122',
-		[
-			'type' => \Elementor\Controls_Manager::DIVIDER,
-		]
-	);
-
-	$this->add_control(
-		'separator_heading_style',
-		[
-			'type' => \Elementor\Controls_Manager::HEADING,
-			'label' => __( 'Button Icon Style', 'textdomain' ),
-			'separator' => 'before',
-		]
-	);
-
-	$this->add_responsive_control(
-		'about_button_icon_width',
-		[
-			'label' => __( 'List Icon Width', 'textdomain' ),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'condition' => [
-				'chose_style' => ['about-style-1'],
-			],
-			'size_units' => [ 'px', '%', 'vw' ],
-			'range' => [
-				'px' => [ 'min' => 0, 'max' => 2000 ],
-				'%'  => [ 'min' => 0, 'max' => 100 ],
-				'vw' => [ 'min' => 0, 'max' => 100 ],
-			],
-			'selectors' => [
-				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'width: {{SIZE}}{{UNIT}};',
-			],
-		]
-	);
-
-	$this->add_responsive_control(
-		'about_button_icon_height',
-		[
-			'label' => __( 'List Icon Height', 'textdomain' ),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'size_units' => [ 'px', '%', 'vh' ],
-			'condition' => [
-				'chose_style' => ['about-style-1'],
-			],
-			'range' => [
-				'px' => [ 'min' => 0, 'max' => 2000 ],
-				'%'  => [ 'min' => 0, 'max' => 100 ],
-				'vh' => [ 'min' => 0, 'max' => 100 ],
-			],
-			'selectors' => [
-				'{{WRAPPER}} .about-style-1 .about-content .section-content .planning-list a span svg' => 'height: {{SIZE}}{{UNIT}} !important;',
-			],
-		]
-	);
-
-	// Line Height
-	$this->add_responsive_control(
-		'about_button_icon_line_height',
-		[
-			'label' => __( 'Icon Line Height', 'textdomain' ),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'size_units' => [ 'px' ],
-			'range' => [
-				'px' => [ 'min' => 10, 'max' => 200 ],
-			],
-			'selectors' => [
-				'{{WRAPPER}} .btn-box .secandary-btn span' => 'line-height: {{SIZE}}px !important;',
-			],
-			'default' => [
-				'size' => 64,
-			],
-		]
-	);
+			$this->add_responsive_control(
+				'about_button_icon_height_2',
+				[
+					'label' => __( 'Button Border Height', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%', 'vh' ],
+					'condition' => [
+						'chose_style' => ['about-style-1'],
+					],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vh' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn span' => 'height: {{SIZE}}{{UNIT}} !important;',
+					],
+				]
+			);
 
 
-	$this->add_responsive_control(
-		'about_button_icon_margin_right',
-		[
-			'label' => __( 'Margin', 'textdomain' ),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'size_units' => [ 'px' ],
-			'range' => [
-				'px' => [ 'min' => 0, 'max' => 100 ],
-			],
-			'selectors' => [
-				'{{WRAPPER}} .btn-box .secandary-btn span' => 'margin-right: {{SIZE}}px !important;',
-			],
-			'default' => [
-				'size' => 20,
-			],
-		]
-	);
-	
-	$this->add_responsive_control(
-		'banner_btn_bg_color',
-		[
-			'label' => esc_html__( 'Background Color', 'eyewell-elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'selectors' => [
-				'{{WRAPPER}} .secandary-btn' => 'background: {{VALUE}} !important',
-			],
-		]
-	);
-	
-	$this->add_responsive_control(
-		'banner_btn_margin',
-		[
-			'label' => esc_html__( 'Margin', 'eyewell-elementor' ),
-			'type' => Controls_Manager::DIMENSIONS,
-			'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-			'selectors' => [
-				'{{WRAPPER}} .theme-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-			],
-		]
-	);
-	
-	$this->add_responsive_control(
-		'banner_btn_padding',
-		[
-			'label' => esc_html__( 'Padding', 'eyewell-elementor' ),
-			'type' => Controls_Manager::DIMENSIONS,
-			'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-			'selectors' => [
-				'{{WRAPPER}} .theme-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-			],
-		]
-	);
-	
-	$this->add_group_control(
-		Group_Control_Border::get_type(),
-		[
-			'name' => 'banner_btn_border_border',
-			'selector' => '{{WRAPPER}} .theme-btn',
-		]
-	);
-	
-	$this->add_responsive_control(
-		'banner_btn_border_radius',
-		[
-			'label' => esc_html__( 'Border Radius', 'eyewell-elementor' ),
-			'type' => Controls_Manager::DIMENSIONS,
-			'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-			'selectors' => [
-				'{{WRAPPER}} .theme-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-			],
-		]
-	);
+			// Line Height
+			$this->add_responsive_control(
+				'about_button_icon_line_height',
+				[
+					'label' => __( 'Icon Line Height', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range' => [
+						'px' => [ 'min' => 10, 'max' => 200 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn span' => 'line-height: {{SIZE}}px !important;',
+					],
+					'default' => [
+						'size' => 64,
+					],
+				]
+			);
 
-	$this->end_controls_tab();
 
-	$this->start_controls_tab(
-		'style_hover_tab',
-		[
-			'label' => esc_html__( 'Hover', 'textdomain' ),
-		]
-	);
-	
-	$this->add_responsive_control(
-		'banner_btn_hover_color',
-		[
-			'label' => esc_html__( 'Btn Title Color', 'eyewell-elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'selectors' => [
-				'{{WRAPPER}} .btn-box .secandary-btn:hover' => 'color: {{VALUE}} !important',
-			],
-		]
-	);
+			$this->add_responsive_control(
+				'about_button_icon_margin_right',
+				[
+					'label' => __( 'Margin', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn span' => 'margin-right: {{SIZE}}px !important;',
+					],
+					'default' => [
+						'size' => 20,
+					],
+				]
+			);
+			
+			$this->add_responsive_control(
+				'banner_btn_bg_color',
+				[
+					'label' => esc_html__( 'Background Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .secandary-btn' => 'background: {{VALUE}} !important',
+					],
+				]
+			);
+			
+			$this->add_responsive_control(
+				'banner_btn_margin',
+				[
+					'label' => esc_html__( 'Margin', 'eyewell-elementor' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .theme-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+			
+			$this->add_responsive_control(
+				'banner_btn_padding',
+				[
+					'label' => esc_html__( 'Padding', 'eyewell-elementor' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .theme-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+			
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' => 'banner_btn_border_border',
+					'selector' => '{{WRAPPER}} .theme-btn',
+				]
+			);
+			
+			$this->add_responsive_control(
+				'banner_btn_border_radius',
+				[
+					'label' => esc_html__( 'Border Radius', 'eyewell-elementor' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .theme-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
 
-	$this->add_responsive_control(
-		'banner_btn_bg_hover_color',
-		[
-			'label' => esc_html__( 'Background Color', 'eyewell-elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'selectors' => [
-				'{{WRAPPER}} .theme-btn:hover' => 'background: {{VALUE}} !important',
-			],
-		]
-	);
+			$this->end_controls_tab();
 
-	$this->add_responsive_control(
-		'banner_btn_icon_hover_color',
-		[
-			'label' => esc_html__( 'Icon Color', 'eyewell-elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'selectors' => [
-				'{{WRAPPER}} .theme-btn:hover i' => 'color: {{VALUE}} !important',
-			],
-		]
-	);
+			$this->start_controls_tab(
+				'style_hover_tab',
+				[
+					'label' => esc_html__( 'Hover', 'textdomain' ),
+				]
+			);
+			
+			$this->add_responsive_control(
+				'banner_btn_hover_color',
+				[
+					'label' => esc_html__( 'Btn Title Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn:hover' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
 
-	$this->end_controls_tab();
+			$this->add_responsive_control(
+				'banner_btn_bg_hover_color',
+				[
+					'label' => esc_html__( 'Background Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .theme-btn:hover' => 'background: {{VALUE}} !important',
+					],
+				]
+			);
+
+			$this->add_control(
+				'btn_svg_hover_color',
+				[
+					'label' => __( 'SVG Icon Hover Color', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .secandary-btn:hover svg path' => 'fill: {{VALUE}} !important;',
+					],
+				]
+			);
+			$this->add_responsive_control(
+				'banner_btn_border_hover_color',
+				[
+					'label' => esc_html__( 'Btn Border Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .btn-box .secandary-btn:hover span' => 'border: 1px solid {{VALUE}};',
+					],
+				]
+			);
+
+			$this->end_controls_tab();
 
 
 

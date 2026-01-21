@@ -476,21 +476,11 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
 
             
             $this->add_control(
-                'subtitle_icon_color_style_1',
+                'separator_section_icon_style_1',
                 [
-                    'label' => esc_html__('Sub Title Icon Color', 'zylo-elementor'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
-                    ],
-                ]
-            );
-
-            $this->add_group_control(
-                Group_Control_Typography::get_type(),
-                [
-                    'name' => 'subtitle_icon_typography_style_1',
-                    'selector' => '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .contact-btn a',
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'label' => __( 'Section Title Icon Here', 'textdomain' ),
+                    'separator' => 'before',
                 ]
             );
 
@@ -500,8 +490,16 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'label' => esc_html__('Icon Background Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .subtitle span, {{WRAPPER}} .contact-btn a' => 'background: {{VALUE}};',
+                        '{{WRAPPER}} .subtitle span' => 'background: {{VALUE}};',
                     ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'subtitle_icon_typography_style',
+                    'selector' => '{{WRAPPER}} .subtitle span i',
                 ]
             );
 
@@ -562,15 +560,17 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => ['px', '%', 'em'],
                     'selectors' => [
-                        '{{WRAPPER}} .subtitle span i, {{WRAPPER}} .slider-content .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .subtitle span i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
 
             $this->add_control(
-                'divider_01122',
+                'separator_section_subtitle_style_1',
                 [
-                    'type' => \Elementor\Controls_Manager::DIVIDER,
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'label' => __( 'SubTitle Here', 'textdomain' ),
+                    'separator' => 'before',
                 ]
             );
 
@@ -580,7 +580,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                     'label' => esc_html__('Sub Title Color', 'zylo-elementor'),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a:hover' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .subtitle' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -589,7 +589,7 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'subtitle_typography_style_1',
-                    'selector' => '{{WRAPPER}} .subtitle, {{WRAPPER}} .contact-btn a',
+                    'selector' => '{{WRAPPER}} .subtitle',
                 ]
             );
 
@@ -610,17 +610,6 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 ]
             );
 
-            $this->add_responsive_control(
-                'subtitle_padding_style_1',
-                [
-                    'label' => esc_html__('Padding', 'zylo-elementor'),
-                    'type' => Controls_Manager::DIMENSIONS,
-                    'size_units' => ['px', '%', 'em'],
-                    'selectors' => [
-                        '{{WRAPPER}} .subtitle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    ],
-                ]
-            );
             $this->add_responsive_control(
                 'subtitle_margin_style_1',
                 [
@@ -643,6 +632,15 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
                 );
 
              //  title section Start
+
+            $this->add_control(
+                'separator_sectioon_title_style_1',
+                [
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'label' => __( 'SecTitle Here', 'textdomain' ),
+                    'separator' => 'before',
+                ]
+            );
 
             $this->add_control(
                 'title_color_style_1',
