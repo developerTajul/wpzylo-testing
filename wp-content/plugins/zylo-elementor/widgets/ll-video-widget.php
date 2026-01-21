@@ -208,34 +208,73 @@ class LuxelifeVideo extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+
 		/** typography **/
 		$this->start_controls_section(
 			'heading_style',
 			[
-				'label' => esc_html__( 'Heading Style', 'zylo-elementor' ),
+				'label' => esc_html__( 'Video Style', 'zylo-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
+		
 		$this->add_control(
-            'heading_color',
-            [
-                'label' => __( 'Color', 'zylo-elementor' ),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .comment-respond.style-2 .comment-respond-wrapper .form-title' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+			'color_1',
 			[
-				'name' => 'heading_typography',
-				'selector' => '{{WRAPPER}} .comment-respond.style-2 .comment-respond-wrapper .form-title',
+				'label' => esc_html__('Icon Color', 'zylo-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .video-box .video-icon svg path' => 'fill: {{VALUE}};',
+				],
 			]
 		);
+
+	
+		$this->add_responsive_control(
+			'width_1',
+			[
+				'label' => __( 'Video Icon Width', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'vw' ],
+				'range' => [
+					'px' => [ 'min' => 0, 'max' => 2000 ],
+					'%'  => [ 'min' => 0, 'max' => 100 ],
+					'vw' => [ 'min' => 0, 'max' => 100 ],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .video-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'height_1',
+			[
+				'label' => __( 'Video Icon Height', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'vw' ],
+				'range' => [
+					'px' => [ 'min' => 0, 'max' => 2000 ],
+					'%'  => [ 'min' => 0, 'max' => 100 ],
+					'vw' => [ 'min' => 0, 'max' => 100 ],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .video-icon svg' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'background_1',
+			[
+				'label' => esc_html__( 'Video Background Color', 'zylo-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .work-style-1 .thumb .video-box a' => 'background-color: {{VALUE}} !important',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 

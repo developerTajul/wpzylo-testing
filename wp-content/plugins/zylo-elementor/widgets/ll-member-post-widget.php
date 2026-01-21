@@ -281,35 +281,171 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 	
 		$this->end_controls_section();
 		
+		/** Icon Section Start **/
+		$this->start_controls_section(
+			'member_icon_style',
+				[
+					'label' => esc_html__( 'Icon Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+			$this->add_responsive_control(
+				'color_1',
+				[
+					'label' => esc_html__( 'Icon Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .singleitem__iconbox svg path' => 'stroke: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_responsive_control(
+				'color_2',
+				[
+					'label' => esc_html__( 'Icon Hover Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .singleitem__iconbox a:hover svg path' => 'stroke: {{VALUE}}',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+                'width_2',
+                [
+                    'label' => __( 'Icon Size', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .singleitem__iconbox svg' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+			$this->add_responsive_control(
+				'top_offset_1',
+				[
+					'label' => __( 'Top Offset', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [ 'min' => -200, 'max' => 200 ],
+						'%'  => [ 'min' => -100, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox' => 'top: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_responsive_control(
+				'right_offset_1',
+				[
+					'label' => __( 'Right Offset', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [ 'min' => -200, 'max' => 200 ],
+						'%'  => [ 'min' => -100, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox' => 'right: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+                'width_1',
+                [
+                    'label' => __( 'Icon Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+			$this->add_responsive_control(
+                'height_1',
+                [
+                    'label' => __( 'Icon Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+			$this->add_responsive_control(
+				'border_color_1',
+				[
+					'label' => __( 'Icon Border Color', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'border-color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'background_1',
+				[
+					'label' => esc_html__( 'Icon Background Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'background-color: {{VALUE}} !important',
+					],
+				]
+			);
+
+		$this->end_controls_section();
+
+
 		/** typography **/
 		$this->start_controls_section(
 			'member_style_heading',
-			[
-				'label' => esc_html__( 'Member Heading Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+				[
+					'label' => esc_html__( 'Member Heading Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
 	
-		$this->add_control(
-            'member_post_heading_font_color',
-            [
-                'label' => __( 'Heading Color', 'zylo-elementor' ),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .info-card.style-2 .title' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
+			$this->add_control(
+				'member_post_heading_font_color',
+				[
+					'label' => __( 'Heading Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .info-card.style-2 .title' => 'color: {{VALUE}};',
+					]
+				]
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'heading_typography',
-				'selector' => '{{WRAPPER}} .info-card.style-2 .title',
-			]
-		);
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'heading_typography',
+					'selector' => '{{WRAPPER}} .info-card.style-2 .title',
+				]
+			);
 
 		$this->end_controls_section();
 
