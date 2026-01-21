@@ -623,7 +623,7 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 			);
 
 			$this->add_responsive_control(
-                'title_width',
+                'width_1',
                 [
                     'label' => __( 'Heading Width', 'textdomain' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,

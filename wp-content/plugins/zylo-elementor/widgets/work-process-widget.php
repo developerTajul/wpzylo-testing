@@ -162,63 +162,167 @@ class ZyloWorkProcess extends \Elementor\Widget_Base {
         
 		$this->end_controls_section();
 
+
+
+		/** Icon Style **/
+		$this->start_controls_section(
+			'process_icon_style',
+				[
+					'label' => esc_html__( 'Icon Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+			$this->add_responsive_control(
+				'width_2',
+				[
+					'label' => __( 'Icon 1 Size', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%', 'vw' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vw' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .service-style-3 .service-wrap .single-item-content.active .icon__1, {{WRAPPER}} .work-style-2 .singleitem.active .singleitem__icon img' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_responsive_control(
+                'custom_margin_1',
+                [
+                    'label' => esc_html__('Icon 1 Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .icon__1, {{WRAPPER}} .work-style-2 .singleitem.active .singleitem__icon img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+			$this->add_responsive_control(
+				'width_3',
+				[
+					'label' => __( 'Icon 2 Size', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'condition' => [
+						'chose_style' => 'process-style-1',
+					],
+					'size_units' => [ 'px', '%', 'vw' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vw' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .service-style-3 .service-wrap .single-item-content.active .icon__2' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_responsive_control(
+                'custom_margin_2',
+                [
+                    'label' => esc_html__('Icon 2 Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+					'condition' => [
+						'chose_style' => 'process-style-1',
+					],
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .service-style-3 .service-wrap .single-item-content.active .icon__2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+		$this->end_controls_section();
+		
+
 		/** heading typography **/
 		$this->start_controls_section(
 			'process_heading_style',
-			[
-				'label' => esc_html__( 'Heading Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+				[
+					'label' => esc_html__( 'Heading Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
-		$this->add_control(
-            'process_heading_font_color',
-            [
-                'label' => __( 'Color', 'zylo-elementor' ),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .box-content .title' => 'color: {{VALUE}} !important',
-                ]
-            ]
-        );
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'process_heading_typography',
-				'selector' => '{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .box-content .title',
-			]
-		);
+			$this->add_control(
+				'process_heading_font_color',
+				[
+					'label' => __( 'Title Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .box-content .title, {{WRAPPER}} .work-style-2 .singleitem__content .title' => 'color: {{VALUE}} !important',
+					]
+				]
+			);
+			$this->add_control(
+				'process_heading_font_color_2',
+				[
+					'label' => __( 'Title Hover Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .work-style-2 .singleitem__content .title:hover a' => 'color: {{VALUE}}',
+					]
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'process_heading_typography',
+					'selector' => '{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .box-content .title, {{WRAPPER}} .work-style-2 .singleitem__content .title',
+				]
+			);
 
-		$this->end_controls_section();
+			$this->end_controls_section();
 
-		$this->start_controls_section(
-			'process_desc_style',
-			[
-				'label' => esc_html__( 'Description Style', 'zylo-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+			$this->start_controls_section(
+				'process_desc_style',
+				[
+					'label' => esc_html__( 'Description Style', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
 
-		$this->add_control(
-            'process_desc_font_color',
-            [
-                'label' => __( 'Description Color', 'zylo-elementor' ),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .el-section-title .el-desc' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
+			$this->add_control(
+				'process_desc_font_color',
+				[
+					'label' => __( 'Description Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .service-style-3 .service-wrap .single-item-content:hover .box-content p, {{WRAPPER}} .work-style-2 .singleitem__content p' => 'color: {{VALUE}};',
+					]
+				]
+			);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'process_desc_typography',
-				'selector' => '{{WRAPPER}} .el-section-title .el-desc',
-			]
-		);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'process_desc_typography',
+					'selector' => '{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .box-content p',
+				]
+			);
+
+			$this->add_responsive_control(
+				'width_1',
+				[
+					'label' => __( 'Description Width', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%', 'vw' ],
+					'range' => [
+						'px' => [ 'min' => 0, 'max' => 2000 ],
+						'%'  => [ 'min' => 0, 'max' => 100 ],
+						'vw' => [ 'min' => 0, 'max' => 100 ],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .service-style-3 .service-wrap .single-item-content .box-content p' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
 
 		$this->end_controls_section();
 

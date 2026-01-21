@@ -1074,49 +1074,49 @@ class LuxelifeServicePost extends \Elementor\Widget_Base {
 
         $this->start_controls_tab(
             'button_normal_tab',
-            [
-                'label' => esc_html__('Normal', 'zylo-elementor'),
-            ]
-        );
+                [
+                    'label' => esc_html__('Normal', 'zylo-elementor'),
+                ]
+            );
 
-        $this->add_control(
-            'button_color',
-            [
-                'label' => esc_html__('Text Color', 'zylo-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .read-more a, {{WRAPPER}} .arrow a' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
+            $this->add_control(
+                'button_color',
+                [
+                    'label' => esc_html__('Text Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .read-more a, {{WRAPPER}} .arrow a' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'button_typography',
-                'selector' => '{{WRAPPER}} .read-more a, {{WRAPPER}} .arrow a',
-            ]
-        );
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'button_typography',
+                    'selector' => '{{WRAPPER}} .read-more a, {{WRAPPER}} .arrow a',
+                ]
+            );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
             'button_hover_tab',
-            [
-                'label' => esc_html__('Hover', 'zylo-elementor'),
-            ]
-        );
+                [
+                    'label' => esc_html__('Hover', 'zylo-elementor'),
+                ]
+            );
 
-        $this->add_control(
-            'button_hover_color',
-            [
-                'label' => esc_html__('Text Color', 'zylo-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .read-more a:hover, {{WRAPPER}} .arrow a:hover' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
+            $this->add_control(
+                'button_hover_color',
+                [
+                    'label' => esc_html__('Text Color', 'zylo-elementor'),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .read-more a:hover, {{WRAPPER}} .arrow a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
