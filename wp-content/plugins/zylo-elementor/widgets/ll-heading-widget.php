@@ -371,7 +371,160 @@ class LexelifeHeading extends \Elementor\Widget_Base {
 				]
 			);
 
+			$this->add_control(
+				'separator_heading_1',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'Sub Title Icon Style', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
+
+			$this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'typography_1',
+                    'selector' => '{{WRAPPER}} .subtitle span i',
+                ]
+            );
+
+			$this->add_responsive_control(
+				'color_1',
+				[
+					'label' => esc_html__( 'Icon Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .subtitle span i' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+                'custom_width',
+                [
+                    'label' => __( 'Icon Width', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'custom_height',
+                [
+                    'label' => __( 'Icon Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'custom_line_height',
+                [
+                    'label' => __( 'Icon Line Height', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vh' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vh' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'custom_margin',
+                [
+                    'label' => esc_html__('Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+			$this->add_group_control(
+				\Elementor\Group_Control_Border::get_type(),
+				[
+					'name' => 'border_color_1', 
+					'label' => __( 'Icon Border', 'textdomain' ),
+					'selector' => '{{WRAPPER}} .subtitle span',
+					'fields_options' => [
+						'width' => [
+							'default' => [
+								'top' => 1,
+								'right' => 1,
+								'bottom' => 1,
+								'left' => 1,
+							],
+							'label' => __( 'Border Width', 'textdomain' ),
+						],
+						'color' => [
+							'label' => __( 'Border Color', 'textdomain' ),
+						],
+						'style' => [
+							'label' => __( 'Border Style', 'textdomain' ),
+							'options' => [
+								'solid' => 'Solid',
+								'dashed' => 'Dashed',
+								'dotted' => 'Dotted',
+								'double' => 'Double',
+								'groove' => 'Groove',
+								'ridge' => 'Ridge',
+								'inset' => 'Inset',
+								'outset' => 'Outset',
+								'none' => 'None',
+							],
+						],
+					],
+				]
+			);
+
+
+			$this->add_responsive_control(
+				'background_1',
+				[
+					'label' => esc_html__( 'Icon Background Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .subtitle span' => 'background-color: {{VALUE}} !important',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+                'custom_margin_1',
+                [
+                    'label' => esc_html__('Icon Column Gap', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .subtitle span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
 		$this->end_controls_section();
+
+
 
 		// Heading Style
 		$this->start_controls_section(
