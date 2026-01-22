@@ -230,14 +230,94 @@ class ZyloBlogPost extends \Elementor\Widget_Base {
         );
         $this->end_controls_section();
 
-        //style tab start
+
         $this->start_controls_section(
-            'title_styling_settings_section',
+            'author_styling_settings_section',
             [
-                'label' => esc_html__('Styling Settings', 'zylo-toolkit'),
+                'label' => esc_html__('Author Style', 'zylo-toolkit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
+
+            $this->add_control(
+				'separator_heading_1',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'Author Label Style', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
+        	$this->add_responsive_control(
+				'color_5',
+				[
+					'label' => esc_html__( 'Author Label Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .blog-style-1 .singleblog__meta span' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'typography_1',
+                    'selector' => '{{WRAPPER}} .blog-style-1 .singleblog__meta span',
+                ]
+            );
+
+
+            //  Atuhor Title Style
+
+            $this->add_control(
+				'separator_heading_2',
+				[
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'label' => __( 'Author Title Style', 'textdomain' ),
+					'separator' => 'before',
+				]
+			);
+
+        	$this->add_responsive_control(
+				'color_2',
+				[
+					'label' => esc_html__( 'Author Title Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .blog-style-1 .singleblog__meta span a' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
+        	$this->add_responsive_control(
+				'color_3',
+				[
+					'label' => esc_html__( 'Author Title Hover Color', 'eyewell-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .blog-style-1 .singleblog__meta span a:hover' => 'color: {{VALUE}} !important',
+					],
+				]
+			);
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'typography_2',
+                    'selector' => '{{WRAPPER}} .blog-style-1 .singleblog__meta span a',
+                ]
+            );
+
+        $this->end_controls_section();
+
+
+
+        //style tab start
+        $this->start_controls_section(
+            'title_styling_settings_section',
+                [
+                    'label' => esc_html__('Styling Settings', 'zylo-toolkit'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
         $this->start_controls_tabs(
             'title_style_tabs'
         );
@@ -318,7 +398,7 @@ class ZyloBlogPost extends \Elementor\Widget_Base {
             'label' => esc_html__('Title Color', 'zylo-toolkit'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                "{{WRAPPER}} .latest-blog-item__content h6.latest-blog-item__title" => "color: {{VALUE}}"
+                "{{WRAPPER}} .blog-style-1 .singleblog__title" => "color: {{VALUE}}"
             ]
         ]);
          $this->add_control('normal_post_title_padding', [
@@ -337,13 +417,8 @@ class ZyloBlogPost extends \Elementor\Widget_Base {
                 "{{WRAPPER}} .latest-blog-item__content h6.latest-blog-item__title" =>  "margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};",
             ]
         ]);
-        $this->add_control('normal_post_readmore_color', [
-            'label' => esc_html__('Read More Color', 'zylo-toolkit'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                "{{WRAPPER}} .latest-blog-item__content a.latest-blog-item__btn" => "color: {{VALUE}}"
-            ]
-        ]);
+
+
         $this->add_control('normal_post_readmore_margin', [
             'label' => esc_html__('Read More Margin', 'zylo-toolkit'),
             'type' => Controls_Manager::DIMENSIONS,
@@ -352,13 +427,8 @@ class ZyloBlogPost extends \Elementor\Widget_Base {
                 "{{WRAPPER}} .latest-blog-item__content a.latest-blog-item__btn" =>  "margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};",
             ]
         ]);
-        $this->add_control('normal_background_color', [
-            'label' => esc_html__('Background Color', 'zylo-toolkit'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                "{{WRAPPER}} .latest-blog-item" => "background-color: {{VALUE}}"
-            ]
-        ]);
+
+
         $this->add_responsive_control(
             'content_padding',
             [
@@ -418,6 +488,118 @@ class ZyloBlogPost extends \Elementor\Widget_Base {
         $this->end_controls_tab();
         $this->end_controls_tabs();
         $this->end_controls_section();
+
+
+        //Read More style
+        $this->start_controls_section(
+            'blog_readmore_styling_section',
+                [
+                    'label' => esc_html__('Read More Style', 'zylo-toolkit'),
+                    'tab' => Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            //  Read More Style Start
+            $this->add_control(
+                'separator_heading_4',
+                [
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'label' => __( 'Read More Icon Style', 'textdomain' ),
+                    'separator' => 'before',
+                ]
+            );
+
+        
+            $this->add_responsive_control(
+                'color_6',
+                [
+                    'label' => esc_html__( 'Icon Color', 'eyewell-elementor' ),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .singleblog__blogbtn a svg path' => 'fill: {{VALUE}} !important',
+                    ],
+                ]
+            );
+            $this->add_responsive_control(
+                'color_7',
+                [
+                    'label' => esc_html__( 'Icon Hover Color', 'eyewell-elementor' ),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .singleblog__blogbtn:hover svg path' => 'fill: {{VALUE}} !important',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'width_2',
+                [
+                    'label' => __( 'Icon Size', 'textdomain' ),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%', 'vw' ],
+                    'range' => [
+                        'px' => [ 'min' => 0, 'max' => 2000 ],
+                        '%'  => [ 'min' => 0, 'max' => 100 ],
+                        'vw' => [ 'min' => 0, 'max' => 100 ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .blog-style-1 .singleblog__blogbtn a svg' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+
+            $this->add_control(
+                'separator_heading_3',
+                [
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'label' => __( 'Read More Title Style', 'textdomain' ),
+                    'separator' => 'before',
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Typography::get_type(),
+                [
+                    'name' => 'typography_3',
+                    'selector' => '{{WRAPPER}} .blog-style-1 .singleblog__blogbtn a',
+                ]
+            );
+
+            $this->add_control(
+                'normal_post_readmore_color', [
+                'label' => esc_html__('Read More Color', 'zylo-toolkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    "{{WRAPPER}} .blog-style-1 .singleblog__blogbtn a" => "color: {{VALUE}}"
+                ]
+            ]);
+
+            $this->add_control(
+                'normal_post_readmore_color_2', [
+                'label' => esc_html__('Read More Hover Color', 'zylo-toolkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    "{{WRAPPER}} .blog-style-1 .singleblog__blogbtn a:hover" => "color: {{VALUE}}"
+                ]
+            ]);
+
+            $this->add_responsive_control(
+                'margin_1',
+                [
+                    'label' => esc_html__('Button Margin', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .singleblog__blogbtn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+
+        $this->end_controls_section();
+
+
 
         //typography style
         $this->start_controls_section(
