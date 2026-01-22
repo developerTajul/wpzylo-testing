@@ -611,6 +611,51 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 
 
+		//  Team Member Card Background Style
+		$this->start_controls_section(
+			'member_card_background',
+				[
+					'label' => esc_html__( 'Member Card Background', 'zylo-elementor' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+			$this->add_responsive_control(
+				'background_4',
+				[
+					'label' => __('Background Color', 'textdomain'),
+					'type'  => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .singleitem__bg svg path:first-of-type' => 'fill: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'background_5',
+				[
+					'label' => __('Background Hover Color', 'textdomain'),
+					'type'  => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .singleitem__bg:hover svg path:first-of-type' => 'fill: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'background_6',
+				[
+					'label' => __('Card Border Color', 'textdomain'),
+					'type'  => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .singleitem__bg svg path:last-of-type' => 'fill: {{VALUE}};',
+					],
+				]
+			);
+
+		$this->end_controls_section();
+
+
 
 		$this->start_controls_section(
 			'member_style_link',
