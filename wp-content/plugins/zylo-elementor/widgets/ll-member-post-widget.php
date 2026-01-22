@@ -296,7 +296,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'label' => esc_html__( 'Icon Color', 'zylo-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .singleitem__iconbox svg path' => 'stroke: {{VALUE}}',
+						'{{WRAPPER}} .singleitem__iconbox svg path, {{WRAPPER}} .singleitems__iconbox svg path' => 'stroke: {{VALUE}}',
 					],
 				]
 			);
@@ -306,7 +306,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'label' => esc_html__( 'Icon Hover Color', 'zylo-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .singleitem__iconbox a:hover svg path' => 'stroke: {{VALUE}}',
+						'{{WRAPPER}} .singleitem__iconbox a:hover svg path, {{WRAPPER}} .singleitems__iconbox a:hover svg path' => 'stroke: {{VALUE}}',
 					],
 				]
 			);
@@ -323,7 +323,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .singleitem__iconbox svg' => 'width: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .singleitem__iconbox svg, {{WRAPPER}} .singleitems__iconbox svg' => 'width: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -339,7 +339,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 						'%'  => [ 'min' => -100, 'max' => 100 ],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem__iconbox' => 'top: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox, {{WRAPPER}} .singleitems__iconbox' => 'top: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -354,7 +354,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 						'%'  => [ 'min' => -100, 'max' => 100 ],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem__iconbox' => 'right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox, {{WRAPPER}} .singleitems__iconbox' => 'right: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -371,7 +371,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'width: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .team-style-1 .singleitem__iconbox a, {{WRAPPER}} .team-style-2 .singleitems__iconbox a' => 'width: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -387,7 +387,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'height: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .team-style-1 .singleitem__iconbox a, {{WRAPPER}} .team-style-2 .singleitems__iconbox a' => 'height: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -398,7 +398,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'label' => __( 'Icon Border Color', 'textdomain' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox a, {{WRAPPER}} .team-style-2 .singleitems__iconbox a' => 'border-color: {{VALUE}};',
 					],
 				]
 			);
@@ -409,7 +409,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'label' => esc_html__( 'Icon Background Color', 'zylo-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem__iconbox a' => 'background-color: {{VALUE}} !important',
+						'{{WRAPPER}} .team-style-1 .singleitem__iconbox a, {{WRAPPER}} .team-style-2 .singleitems__iconbox a' => 'background-color: {{VALUE}} !important',
 					],
 				]
 			);
@@ -432,12 +432,31 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 				[
 					'label' => __( 'Heading Color', 'zylo-elementor' ),
 					'type' => Controls_Manager::COLOR,
+					'condition' => [
+						'chose_style' => 'member-style-1',
+					],
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .team-style-1 .singleitem .singleitem__content .title a' => 'color: {{VALUE}};',
 					]
 				]
 			);
+
+			$this->add_control(
+				'member_post_heading_font_color_3',
+				[
+					'label' => __( 'Heading Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'condition' => [
+						'chose_style' => 'member-style-2',
+					],
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .team-style-2 .singleitems__content .title' => 'color: {{VALUE}} !important;',
+					]
+				]
+			);
+
 			$this->add_control(
 				'member_post_heading_font_color_2',
 				[
@@ -445,7 +464,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem:hover .singleitem__content .title a' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .team-style-1 .singleitem:hover .singleitem__content .title a, {{WRAPPER}} .team-style-2 .singleitems__content .title a:hover' => 'color: {{VALUE}};',
 					]
 				]
 			);
@@ -454,17 +473,26 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 				\Elementor\Group_Control_Typography::get_type(),
 				[
 					'name' => 'heading_typography',
-					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__content .title',
+					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__content .title, {{WRAPPER}} .team-style-2 .singleitems__content .title',
 				]
 			);
+
+			$this->add_responsive_control(
+                'padding_1',
+                [
+                    'label' => esc_html__('Padding', 'zylo-elementor'),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%', 'em'],
+                    'selectors' => [
+                        '{{WRAPPER}} .team-style-1 .singleitem__content .title, {{WRAPPER}} .team-style-2 .singleitems__content .title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
 
 		$this->end_controls_section();
 
 
-		
-
-			
-	
+		//  Team Member Designation Style
 		$this->start_controls_section(
 			'member_style_desc',
 				[
@@ -473,36 +501,36 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 				]
 			);
 
-		$this->add_control(
-			'member_desc_font_color',
-			[
-				'label' => __( 'Designation Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .team-style-1 .singleitem__content span' => 'color: {{VALUE}};',
+			$this->add_control(
+				'member_desc_font_color',
+				[
+					'label' => __( 'Designation Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem__content span, {{WRAPPER}} .team-style-2 .singleitems .singleitems__content span' => 'color: {{VALUE}};',
+					]
 				]
-			]
-		);
-		$this->add_control(
-			'member_desc_font_color_2',
-			[
-				'label' => __( 'Designation Hover Color', 'zylo-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .team-style-1 .singleitem:hover .singleitem__content span' => 'color: {{VALUE}};',
+			);
+			$this->add_control(
+				'member_desc_font_color_2',
+				[
+					'label' => __( 'Designation Hover Color', 'zylo-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .team-style-1 .singleitem:hover .singleitem__content span, {{WRAPPER}} .team-style-2 .singleitems:hover .singleitems__content span' => 'color: {{VALUE}};',
+					]
 				]
-			]
-		);
+			);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'member_desc_typography',
-				'selector' => '{{WRAPPER}} .team-style-1 .singleitem__content span',
-			]
-		);
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'member_desc_typography',
+					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__content span, {{WRAPPER}} .team-style-2 .singleitems__content span',
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -520,7 +548,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 				\Elementor\Group_Control_Typography::get_type(),
 				[
 					'name' => 'typography_1',
-					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__social a',
+					'selector' => '{{WRAPPER}} .team-style-1 .singleitem__social a, {{WRAPPER}} .team-style-2 .singleitems__social a',
 				]
 			);
 
@@ -531,7 +559,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem__social a' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .team-style-1 .singleitem__social a, {{WRAPPER}} .team-style-2 .singleitems__social a' => 'color: {{VALUE}};',
 					]
 				]
 			);
@@ -542,7 +570,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 					'label' => esc_html__( 'Icon Background Color', 'zylo-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .team-style-1 .singleitem__social a' => 'background-color: {{VALUE}} !important',
+						'{{WRAPPER}} .team-style-1 .singleitem__social a, {{WRAPPER}} .team-style-2 .singleitems__social a' => 'background-color: {{VALUE}} !important',
 					],
 				]
 			);
@@ -559,7 +587,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .section-content h2.section-title' => 'width: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .section-content h2.section-title, {{WRAPPER}} .team-style-2 .singleitems__social a' => 'width: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -575,7 +603,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .team-style-1 .singleitem__social a' => 'height: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .team-style-1 .singleitem__social a, {{WRAPPER}} .team-style-2 .singleitems__social a' => 'height: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -591,7 +619,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                         'vw' => [ 'min' => 0, 'max' => 100 ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .team-style-1 .singleitem__social a' => 'line-height: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .team-style-1 .singleitem__social a, {{WRAPPER}} .team-style-2 .singleitems__social a' => 'line-height: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -603,7 +631,7 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => ['px', '%', 'em'],
                     'selectors' => [
-                        '{{WRAPPER}} .team-style-1 .singleitem__social a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .team-style-1 .singleitem__social a, {{WRAPPER}} .team-style-2 .singleitems__social a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -623,10 +651,10 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 			$this->add_responsive_control(
 				'background_4',
 				[
-					'label' => __('Background Color', 'textdomain'),
+					'label' => __('Card Background Color', 'textdomain'),
 					'type'  => \Elementor\Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .singleitem__bg svg path:first-of-type' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} .singleitem__bg svg path:first-of-type, {{WRAPPER}} .singleitems__bg svg path:first-of-type' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -634,8 +662,11 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 			$this->add_responsive_control(
 				'background_5',
 				[
-					'label' => __('Background Hover Color', 'textdomain'),
+					'label' => __('Card Background Hover Color', 'textdomain'),
 					'type'  => \Elementor\Controls_Manager::COLOR,
+					'condition' => [
+						'chose_style' => 'member-style-1',
+					],
 					'selectors' => [
 						'{{WRAPPER}} .singleitem__bg:hover svg path:first-of-type' => 'fill: {{VALUE}};',
 					],
@@ -647,9 +678,25 @@ class LuxelifeMemberPost extends \Elementor\Widget_Base {
 				[
 					'label' => __('Card Border Color', 'textdomain'),
 					'type'  => \Elementor\Controls_Manager::COLOR,
+					'condition' => [
+						'chose_style' => 'member-style-1',
+					],
 					'selectors' => [
 						'{{WRAPPER}} .singleitem__bg svg path:last-of-type' => 'fill: {{VALUE}};',
 					],
+				]
+			);
+
+			$this->add_group_control(
+				\Elementor\Group_Control_Background::get_type(),
+				[
+					'name' => 'background_8',
+					'label' => __('Background 2 Gradient', 'textdomain'),
+					'types' => ['classic', 'gradient'],
+					'condition' => [
+						'chose_style' => 'member-style-2',
+					],
+					'selector' => '{{WRAPPER}} .bg__color2',
 				]
 			);
 
